@@ -1,0 +1,28 @@
+class Solution:
+    def reverse(self, x):
+        """
+        :type x: int
+        :rtype: int
+        """
+        # Method 1
+        mask = 1 if x >= 0 else -1
+        x = abs(x)
+        result = mask * int(str(x)[::-1])
+        return result if -2**31 <= result <= 2**31-1 else 0
+
+        # Method 2
+        # if x >= 0:
+        #     sx = [i for i in str(x)][::-1]
+        #     sx = int(''.join(sx))
+        #     if sx >2**31-1:
+        #         return 0
+        #     else:
+        #         return sx
+        # else:
+        #     x = -x
+        #     sx = [i for i in str(x)][::-1]
+        #     sx = int(''.join(sx))
+        #     if -1*sx < -2**31:
+        #         return 0
+        #     else:
+        #         return -1*sx
