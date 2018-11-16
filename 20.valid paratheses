@@ -1,0 +1,23 @@
+class Solution:
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+        stack = []
+        left = ['(', '{', '[']
+        right = [')', '}', ']']
+        if (len(s)%2 == 1) or (s != "" and s[0] in right):
+            return False
+        else:
+            for i in range(len(s)):
+                if s[i] in left:
+                    stack.append(s[i])
+                else:
+                    pp = stack.pop()
+                    if pp != left[right.index(s[i])]:
+                        return False
+            if len(stack) :
+                return False
+            else:
+                return True

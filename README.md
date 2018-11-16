@@ -24,3 +24,21 @@ ps:可以通过**startswith()**判断字符串是否以某几个字符开头
 
 思路２：没天理之**os.path.commonprefix(strs)**
 
+------
+
+及时发现，还是得按照不同的tag来做，这样才便于能找到其中的规律
+
+```python
+from collections import deque # 队列
+```
+
+**栈**
+
+20、Valid Paratheses 可以使用list实现栈的相关操作
+
+155、最小栈
+
+
+
+
+
