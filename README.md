@@ -16,3 +16,11 @@ simple git course : https://blog.csdn.net/sinat_20177327/article/details/7606203
 
 思路：从第二个值开始，如果当前值大于上一个值，则加的数是当前值减去上一个值的两倍！
 
+14、longest Common Prefix
+
+思路１：把每个位置上对应的字符放在set([])里，如果长度为１就加在res上，否则break
+
+ps:可以通过**startswith()**判断字符串是否以某几个字符开头
+
+思路２：没天理之**os.path.commonprefix(strs)**
+
