@@ -38,6 +38,14 @@ from collections import deque # 队列
 
 155、最小栈
 
+------
+
+day 3
+
+476、find next greater element I **栈**牛比
+
+思路：反其道而行之，从大的元素循环，往栈里放，如果后一个元素大于前一个元素，就把这个一个对儿弹出来放到字典中，最后从字典中找，get(x, -1)没有就返回-1
+
 
 
 
