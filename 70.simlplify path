@@ -1,0 +1,32 @@
+class Solution:
+    def simplifyPath(self, path):
+        """
+        :type path: str
+        :rtype: str
+        """
+        stack = []
+        x = path.split('/')
+        for i in x:
+            if i == '..':
+                if stack != []:
+                    stack.pop()
+            elif i == '' or i == '.':
+                pass
+            else:
+                stack.append(i)
+
+        return '/' + '/'.join(stack)
+# Method 2
+class Solution:
+    def simplifyPath(self, path):
+        res = []
+        path = path.split('/')
+        path = [i for i in path if i != '' and i !='.']
+        for i in path:
+            if i != '..':
+                res.append(i)
+            elif res:
+                res.pop()
+        return '/' + '/'.join(res)
+     #python nb
+

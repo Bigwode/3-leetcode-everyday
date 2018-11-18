@@ -52,7 +52,11 @@ from collections import deque # 队列
 
 ------
 
+**DAY 4**
 
+71、simplify path
+
+这道题要是第一步想不到split('/')基本上就不好做了。
 
 
 
