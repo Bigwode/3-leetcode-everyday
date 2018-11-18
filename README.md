@@ -52,13 +52,23 @@ from collections import deque # 队列
 
 ------
 
-**DAY 4**
+**DAY 4** (投入英文leetcode第一天~_~  ) **Array对我好点～**
 
 71、simplify path
 
 这道题要是第一步想不到split('/')基本上就不好做了。
 
+94、二叉树的中序遍历(还没学，学了再来)
 
+（1）前序遍历（DLR），根-左-右。 
+（2）中序遍历（LDR），左-根-右。 
+（3）后序遍历（LRD），左-右-根。
+
+26、Remove Duplicates from Sorted Array
+
+27.remove element 遍历数组不要忘记while循环
+
+------
 
 
 

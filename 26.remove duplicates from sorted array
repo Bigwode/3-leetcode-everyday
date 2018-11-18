@@ -1,0 +1,12 @@
+class Solution:
+    def removeDuplicates(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        id = 0
+        for num in nums:
+            if id < 1 or num != nums[id-1]:
+                nums[id] = num
+                id += 1
+        return id
