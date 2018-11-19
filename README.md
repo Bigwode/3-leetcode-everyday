@@ -70,5 +70,16 @@ from collections import deque # 队列
 
 ------
 
+**DAY 5**
 
+35.Search Insert Position
 
+53.Max Subarray　(@_@)
+
+子串：数组中连续的若干个元素；子序列：只要求各元素的顺序与其在数组中一致，而没有连续的要求。
+
+如果前一个值大于０，当前值加上前一个值。最后从里面选最大值。
+
+66.Plus One
+
+list(str)可以直接将str split成多个单元素的list

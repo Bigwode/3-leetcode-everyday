@@ -1,0 +1,22 @@
+class Solution:
+    def searchInsert(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
+        # Method 1
+        # for i in range(len(nums)):
+        #     if nums == [] or nums[0] > target:
+        #         return 0
+        #     if nums[i] == target:
+        #         return i
+        #     if (i == len(nums)-1) & (nums[i] < target):
+        #         return i+1
+        #     if (i != len(nums)-1) & (nums[i] < target) & (nums[i+1] > target):
+        #         return i+1
+        # Method 2
+        return len([x for x in nums if x < target])
+        # Method 3
+        # return sorted([target] + nums).index(target)
+                
