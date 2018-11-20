@@ -83,3 +83,18 @@ from collections import deque # 队列
 66.Plus One
 
 list(str)可以直接将str split成多个单元素的list
+
+------
+
+**DAY 6**
+
+88.Merge sorted array
+
+注意题目要求不需要返回任何值，只需要在原list上直接修改就可以了。
+
+注意不要漏掉当if n>0的情况。
+
+118, 119比较简单杨辉三角
+
+
+
