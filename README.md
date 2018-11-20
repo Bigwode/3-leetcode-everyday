@@ -1,6 +1,10 @@
 # 3-leetcode-everyday
 simple git course : https://blog.csdn.net/sinat_20177327/article/details/76062030
 
+------
+
+**DAY 1**
+
 1、two-sum
 
 **能同时获取元素和index的方法是使用enumerate()**
@@ -25,6 +29,8 @@ ps:可以通过**startswith()**判断字符串是否以某几个字符开头
 思路２：没天理之**os.path.commonprefix(strs)**
 
 ------
+
+**DAY 2**
 
 及时发现，还是得按照不同的tag来做，这样才便于能找到其中的规律
 
@@ -96,5 +102,8 @@ list(str)可以直接将str split成多个单元素的list
 
 118, 119比较简单杨辉三角
 
+------
 
+**DAY 7**
 
+121、从第１天往后的第i天，如果买出，赚得钱是第i-1天赚得钱 + [第i天的股价-第i-1天的股价]，如果不卖出，赚得钱是0。求之间的最大值
