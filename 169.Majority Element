@@ -1,0 +1,17 @@
+class Solution:
+    def majorityElement(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Method 1
+        # dic = {}
+        # for i in nums:
+        #     if i not in dic.keys():
+        #         dic[i] = 1
+        #     else:
+        #         dic[i] = dic[i] + 1
+        # my_dic = {u:v for v, u in dic.items()}
+        # return my_dic[max(my_dic.keys())]
+        # Method 2
+        return sorted(nums)[len(nums)//2]

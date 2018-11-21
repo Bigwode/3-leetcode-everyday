@@ -106,4 +106,17 @@ list(str)可以直接将str split成多个单元素的list
 
 **DAY 7**
 
-121、从第１天往后的第i天，如果买出，赚得钱是第i-1天赚得钱 + [第i天的股价-第i-1天的股价]，如果不卖出，赚得钱是0。求之间的最大值
+**121、**从第１天往后的第i天，如果买出，赚得钱是第i-1天赚得钱 + [第i天的股价-第i-1天的股价]，如果不卖出，赚得钱是0。求之间的最大值（必须再做一遍）
+
+167、Two Sum II - Input array is sorted
+
+169、Majority Element
+
+交换字典的键值顺序：my_dic = {u:v for v, u in dic.items()}
+
+an impressive method：考虑到出现次数最多的值大于n/2，我们排序后的列表上选n//2位置上的值就是出现次数最多的值。
+
+189、Rotate Array
+
+在list中指定位置插入元素使用insert(id, x)
+
