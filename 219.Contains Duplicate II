@@ -1,0 +1,33 @@
+class Solution:
+    def containsNearbyDuplicate(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: bool
+        """
+        # Method 1
+        # dic = {}
+        # for i, j in enumerate(nums):
+        #     if j not in dic.keys():
+        #         dic[j] = [i]
+        #     else:
+        #         dic[j].append(i)
+        # sub = []
+        # for m, n in dic.items():
+        #     if len(n) > 1:
+        #         for id in range(len(n)-1):
+        #             sub.append(n[id+1] - n[id])
+        #         if min(sub) <= k:
+        #             return True
+        #         else:
+        #             return False
+        # return False
+        
+        # Method 2
+        dic = {}
+        for i, j in enumerate(nums):
+            if j in dic:
+                if i-dic[j] <= k:
+                    return True
+            dic[j] = i
+        return False

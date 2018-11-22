@@ -120,3 +120,23 @@ an impressive method：考虑到出现次数最多的值大于n/2，我们排序
 
 在list中指定位置插入元素使用insert(id, x)
 
+------
+
+**DAY 8**
+
+217、Contains Duplicate
+
+219、Contains Duplicate II
+
+更简单的方法是只要不满足减去上一个值小于k的就更新新的值。
+
+268.Missing Number
+
+set(A).difference(B)，在A中不在B中的元素。
+
+sao操作，求和相减~
+
+------
+
+**DAY 9**
+
