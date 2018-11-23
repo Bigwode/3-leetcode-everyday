@@ -138,5 +138,35 @@ sao操作，求和相减~
 
 ------
 
-**DAY 9**
+**DAY 9**　每天加大量~_~GIVE ME FIVE!!!开心
+
+283、move zeros
+
+remove()删除列表中的某个元素但是如果元素有重复的只删除第一次出现的那个。
+
+414、Third Max Number
+
+1.sorted(list(set()), reverse=True降序)
+
+2.构建一个三元素列表，依次比较。
+
+448、查找不同元素，set(A).difference(B) (-也可以)
+
+485、自己还是naive呀，一行代码
+
+```python
+return len(max(''.join(map(str, nums)).split('0')))
+```
+
+1.map()中arg2要是iterable的，max()用在单个str上，选的是第一个字符最大的那个，如果都一样选的是最长的
+
+2.设两个变量，一个是当前的，一个是最终的，更新之
+
+532、K-diff Pairs in an Array
+
+最开始想得有点复杂了，考虑加k减k的情况，其实只考虑+k就可以了。
+
+统计list中每个元素出现次数
+
+collections.Counter()
 

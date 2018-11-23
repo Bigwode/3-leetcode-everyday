@@ -1,0 +1,20 @@
+class Solution:
+    def thirdMax(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Method 1
+        # x = sorted(list(set(nums)), reverse=True)
+        # if len(x)>=3:
+        #     return x[2]
+        # else:
+        #     return x[0]
+        # Method 2
+        x = [float('-inf'), float('-inf'), float('-inf')]
+        for i in nums:
+            if i not in x:
+                if i > x[0]: x = [i, x[0], x[1]]
+                elif i>x[1]: x = [x[0], i, x[1]]
+                elif i>x[2]: x = [x[0], x[1], i]
+        return x[-1] if x[-1] != float('-inf') else x[0]

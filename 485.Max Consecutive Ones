@@ -1,0 +1,40 @@
+class Solution:
+    def findMaxConsecutiveOnes(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Method 1
+        # res = 0
+        # mm = []
+        # if 0 in nums:
+        #     for i in range(len(nums)):
+        #         if i < len(nums)-1 and nums[i] == 1:
+        #             res += 1
+        #         elif i == len(nums)-1 and nums[i] == 1:
+        #             res += 1
+        #             mm.append(res)
+        #         else:
+        #             mm.append(res)
+        #             res = 0       
+        #     return max(mm)
+        # else:
+        #     return len(nums)
+        
+        # Method 2
+        # return len(max(''.join(map(str, nums)).split('0')))
+        
+        # Method 3
+        cur = 0
+        res = 0
+        for i in nums:
+            if i == 1:
+                cur += 1
+            else:
+                res = max(cur, res)
+                cur = 0
+        return max(cur, res)
+            
+                
+                
+        

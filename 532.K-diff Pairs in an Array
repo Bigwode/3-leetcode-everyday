@@ -1,0 +1,27 @@
+from collections import Counter
+class Solution:
+    def findPairs(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        dic = {}
+        res = 0
+        if k < 0:
+            return 0
+        # Method 1
+        # for num in nums:
+        #     if num not in dic:
+        #         dic[num] = 1
+        #     else:
+        #         dic[num] += 1
+        dic = Counter(nums)
+        # Method 2
+        
+        for i in dic:
+            if k != 0 and i+k in dic:
+                res += 1
+            if k == 0 and dic[i+k]>1:
+                res += 1
+        return res
