@@ -170,3 +170,37 @@ return len(max(''.join(map(str, nums)).split('0')))
 
 collections.Counter()
 
+------
+
+**DAY 10** 
+
+昨晚和师兄交流了一会儿，发现了近阶段自身存在的一些问题。１）太浮躁了，学东西过于求快，铺的面太广。作出一道题要充分领悟题目的内容，不能单纯贪图多！刷过的题复杂度不是最优的就不算是做对了！所以GIVE ME THREE吧，留给自己多一点的时间总结和思考！
+
+２）想办法丰富自己的简历。把自己做的事情弄清楚！要给别人讲清楚！
+
+561.Array Partition I
+
+list[::2]间隔两个元素切片
+
+566.Reshape the Matrix
+
+读明白题再做
+
+581.Shortest Unsorted Continuous Subarray
+
+最开始的想法是从头到尾遍历，naive
+
+zip();   all()
+
+```python
+return len(''.join(('.', ' ')[i==j] for i, j in zip(nums, sorted(nums))).strip())
+```
+
+605.Can Place Flowers
+
+巧妙的是对开头和结尾两个元素的处理，在开头和结尾加了两个0，然后就可以以3为周期进行处理了
+
+------
+
+**DAY 11**
+

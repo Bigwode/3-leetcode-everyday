@@ -1,0 +1,22 @@
+class Solution:
+    def matrixReshape(self, nums, r, c):
+        """
+        :type nums: List[List[int]]
+        :type r: int
+        :type c: int
+        :rtype: List[List[int]]
+        """
+        # Method 1
+        nums_new = []
+        for num in nums:
+            for i in num:
+                nums_new.append(i)
+        res = []
+        if len(nums_new)//min(r, c) == max(r, c):
+            cc = len(nums_new)//r
+            for i in range(r):
+                res.append(nums_new[i*cc:(i+1)*cc])
+            return res
+        else:
+            return nums
+        

@@ -1,0 +1,32 @@
+class Solution:
+    def findUnsortedSubarray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        # Method 1
+        # x = sorted(nums)
+        # n = len(nums)
+        # st = 0
+        # end = 0
+        # for i in range(n):
+        #     if nums[i] != x[i]:
+        #         st = i
+        #         break
+        # for j in range(n):
+        #     if nums[n - 1 - j] != x[n - 1 - j]:
+        #         end = n-1-j
+        #         break
+        # if st == 0 and end == 0:
+        #     return 0
+        # elif st <= end:
+        #     return (end - st + 1)
+        # else:
+        #     return (len(nums))
+        
+        # Method 2
+        # return len(''.join(('.', ' ')[i==j] for i, j in zip(nums, sorted(nums))).strip())
+        
+        # Method 3
+        is_same = [i == j for i, j in zip(nums, sorted(nums))]
+        return 0 if all(is_same) else len(is_same)-is_same.index(False)-is_same[::-1].index(False)
