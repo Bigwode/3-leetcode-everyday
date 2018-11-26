@@ -202,5 +202,18 @@ return len(''.join(('.', ' ')[i==j] for i, j in zip(nums, sorted(nums))).strip()
 
 ------
 
-**DAY 11**
+**DAY 11** 11.26
 
+628.Max Product of Three Numbers
+
+惊奇的发现对于排序后的数组来说，乘积最大值只可能出现的情况是
+
+```python
+return max(nums[-1] * nums[-2] * nums[-3], nums[0] * nums[1] * nums[-1])
+```
+
+**堆**
+
+643.Max Average Subarray I
+
+直接四个一组遍历求和会超出运行时间限制，因此只让后一个k元组的最后一个元素减去前一个k元组的第一个元素就是后一个求和多出来的部分。
