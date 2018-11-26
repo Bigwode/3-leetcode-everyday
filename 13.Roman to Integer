@@ -12,3 +12,24 @@ class Solution:
             else:
                 sum += MM[s[i]]
         return sum
+
+class Solution:
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        id2num = {'I':1, 'V':5, 'X':10, 'L':50, 'C':100, 'D':500, 'M':1000}
+        ss = list(s)
+        res = 0
+        if ss:
+            for i in range(len(ss)-1):
+                if id2num[ss[i]] < id2num[ss[i+1]]:
+                    res -= id2num[ss[i]]
+                else:
+                    res += id2num[ss[i]]
+            res += id2num[ss[-1]]
+            return res
+        else:
+            return 0
+
