@@ -1,6 +1,4 @@
 # 3-leetcode-everyday
-simple git course : https://blog.csdn.net/sinat_20177327/article/details/76062030
-
 ------
 
 **DAY 1**
@@ -220,3 +218,47 @@ return max(nums[-1] * nums[-2] * nums[-3], nums[0] * nums[1] * nums[-1])
 
 13.Roman to Integer
 
+------
+
+**DAY 12** 11.27
+
+14.Longest Commom Prefix
+
+**zip()** 函数用于将可迭代的对象作为参数，将对象中对应的元素打包成一个个元组，然后返回由这些元组组成的列表。
+
+zip() 和 * 操作符一起操作可以用来 unzip 一个列表
+
+```python
+for i, n in enumerate(zip(*strs))
+```
+
+20.Valid Parenheses
+
+28.implement strStr()
+
+find()函数
+
+------
+
+**DAY 13** 11.28
+
+58.Length of Last Word
+
+str.strip([chars])去掉首尾的指定字符，默认空格。
+
+67.Add Binary
+
+eval() 函数用来执行一个字符串表达式，并返回表达式的值。例如，eval('2+2')=4
+
+eval('0b'+a) 二进制相加
+
+bin()返回一个整数的二进制表示。
+
+125.Valid Palindrome回文
+
+```python
+s = str(filter(str.isalnum, s)).lower()
+return s == s[::-1]
+```
+
+不知道为什么线下对但是线上错误。

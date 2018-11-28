@@ -1,0 +1,21 @@
+class Solution:
+    def addBinary(self, a, b):
+        """
+        :type a: str
+        :type b: str
+        :rtype: str
+        """
+        return bin(eval('0b'+a) + eval('0b'+b))[2:]
+        # sum_a = 0
+        # sum_b = 0
+        # for i in range(len(a)):
+        #     sum_a += int(a[::-1][i]) * (2**i)
+        # for j in range(len(b)):
+        #     sum_b += int(b[::-1][j]) * (2**j)
+        # sum_res = sum_a + sum_b
+        # l = []
+        # while sum_res >= 1:
+        #     y = sum_res % 2
+        #     sum_res = sum_res // 2
+        #     l.append(str(y))
+        # return ''.join(l[::-1]) if l else "0"
