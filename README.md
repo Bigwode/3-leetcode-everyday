@@ -262,3 +262,28 @@ return s == s[::-1]
 ```
 
 不知道为什么线下对但是线上错误。
+
+------
+
+**DAY 14** 11.29
+
+344.Reverse String EASY
+
+345.Reverse Vowels of a string
+
+学习python正则表达式！
+
+re.findall('(?i)[aeiou]', s)
+
+在字符串中匹配所有子串，并返回一个列表，如果没有找到匹配的，则返回空列表。
+
+re.sub()用于替换字符串中的匹配项。
+
+re.sub(r'\D', "", string)  # 从strings中将满足条件的字符使用""替换。
+
+383.Ransom note勒索信
+
+可以使用collections.Counter()对字符串每个元素进行统计。之后get(k, 0)方法获得相应元素的值。
+
+------
+
