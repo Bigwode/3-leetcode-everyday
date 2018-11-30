@@ -1,0 +1,19 @@
+import collections
+class Solution:
+    def firstUniqChar(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        # Method 1
+        # for i in range(len(s)):
+        #     if s[i] not in s[:i] + s[i+1:]:
+        #         return i
+        # return -1
+
+        # Method 2
+        d = collections.Counter(s)
+        for i,st in enumerate(s):
+            if d[st] == 1:
+                return i
+        return -1

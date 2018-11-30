@@ -287,3 +287,22 @@ re.sub(r'\D', "", string)  # 从strings中将满足条件的字符使用""替换
 
 ------
 
+**DAY 15**
+
+387.First Unique Character in a String
+
+统计字符串中每个字符出现的次数使用collections.Counter()
+
+434.Number of Segments in a String
+
+443.
+
+459.Repeated Substring Pattern
+
+find() 方法检测字符串中是否包含子字符串 str
+
+```python
+return (s*2)[1:-1].find(s) != -1
+```
+------
+
