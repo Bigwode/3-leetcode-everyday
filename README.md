@@ -306,3 +306,21 @@ return (s*2)[1:-1].find(s) != -1
 ```
 ------
 
+**DAY 16**
+
+520.Detect Capital
+
+看全转换为最大值和最小值之后的字符是否和原来的一样。
+
+Python istitle() 方法检测字符串中所有的单词拼写首字母是否为大写，且其他字母为小写。
+
+521.Longest  Uncommon Subsequence I
+
+怪不得这个题这么多人给差评，只要是输出最长字符串的长度就可以
+
+551.Student Attendance Record I
+
+S.count('s')统计某个字符出现的次数。
+
+------
+
