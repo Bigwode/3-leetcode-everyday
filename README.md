@@ -324,3 +324,15 @@ S.count('s')统计某个字符出现的次数。
 
 ------
 
+**DAY 17**
+
+557.Reverse Words in s String III
+
+606.Constract String from Binary Tree涉及二叉树的前向遍历，以后做。
+
+657.Robot Return to Origin
+
+只需统计相应的个数是不是一样就行了！
+
+------
+
