@@ -336,3 +336,14 @@ S.count('s')统计某个字符出现的次数。
 
 ------
 
+**DAY 18**
+
+9.Palindrome Number
+
+69.Sqrt(x)
+
+二分查找；牛顿法
+
+168.Excel Sheet Column Title
+
+26进制计数，ord()与chr()注意在'A'的基础上操作要减去1
