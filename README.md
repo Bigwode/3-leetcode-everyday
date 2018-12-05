@@ -347,3 +347,27 @@ S.count('s')统计某个字符出现的次数。
 168.Excel Sheet Column Title
 
 26进制计数，ord()与chr()注意在'A'的基础上操作要减去1
+
+------
+
+**DAY 19**
+
+171.Excel Sheet Columun Number
+
+map()函数接收两个参数，一个是函数，一个是序列。map将传入的函数一次作用于序列的每一个元素，将结果作为新的list返回。
+
+reduce()把一个函数作用在一个序列[x1,x2,...,]上，这个函数必须接受两个参数，reduce把结果继续和序列的下一个元素做累积计算。
+
+```python
+from functools import reduce
+reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
+```
+
+172.Factorial Trailing Zeros 即求阶乘最后有多少个0，没看懂。。。要求log复杂度
+
+求n能被多少个５整除
+
+202.Happy Numer
+
+将结果放到一个set()里，通过看是否在set里有相同元素判断循环相加。如果循环到截止的元素不是１返回False.
+

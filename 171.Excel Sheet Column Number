@@ -1,0 +1,10 @@
+class Solution:
+    def titleToNumber(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        from functools import reduce
+        def s2num(x):
+            return ord(x)-ord('A')+1
+        return reduce(lambda x, y:x*26+y,map(s2num, s))
