@@ -371,3 +371,9 @@ reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 
 将结果放到一个set()里，通过看是否在set里有相同元素判断循环相加。如果循环到截止的元素不是１返回False.
 
+------
+
+**DAY 20**
+
+21、Merge Two Sorted Lists.
+
