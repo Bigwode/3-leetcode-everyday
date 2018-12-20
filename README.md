@@ -375,6 +375,21 @@ reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 
 **DAY 20**
 
-21、Merge Two Sorted Lists.
+21、Merge Two Sorted Lists.（链表）
 
-dummy的使用或者使用递归。
+将两个链表合并。注意dummy的使用或者使用递归。
+
+83、Remove Duplicates from Sorted List.
+
+------
+
+**DAY 21**
+
+141.Linked List Cycle　判断一个链表里是否有环
+
+设两个指针slow和fast，分别一次移动一格和两格，如果在循环结束之前快的可以追上慢的，那么就说明有环。
+
+注意终止条件的设置，设置不当的话可能会出现None.next的错误。
+
+
+
