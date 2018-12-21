@@ -373,7 +373,7 @@ reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 
 ------
 
-**DAY 20**
+**DAY 20** ------链表
 
 21、Merge Two Sorted Lists.（链表）
 
@@ -390,6 +390,34 @@ reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 设两个指针slow和fast，分别一次移动一格和两格，如果在循环结束之前快的可以追上慢的，那么就说明有环。
 
 注意终止条件的设置，设置不当的话可能会出现None.next的错误。
+
+160.Intersection of Two Linked Lists.
+
+思路１：分别计算出两个链表的长度，然后move长的链表到短的链表长度，之后同时move两个指针，直到遇到相同的为止。时间O(2(m+n))，空间O(1)
+
+思路2:同时循环两个链表，循环完一个再将指针移动到另一个开始，两次循环直到遇到相同的终止，或者没有交叉的情况结束。(dammmn this is ALgo, bro!)
+
+203.Remove Linked List Elements
+
+删除一个链表中val为某个值的结点。
+
+思路：从头结点开始移到第一个值不是val的位置，判断是不是为空-> 如果dummy->next不为空，循环，如果dummy->next->val == val，就跳过下一个结点，否则就移动到下一个结点。
+
+------
+
+**DAY 22**
+
+206.Reverse Linked List.翻转字符串
+
+思路1:使用递归(recursively)
+
+首先翻转第二个结点到最后一个结点的链表，然后再将头结点放到翻转链表的最后。
+
+即，head->next->next = head; head->next = nullptr;
+
+思路2:使用迭代(iteratively)
+
+pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =pre; pre = cur;
 
 
 
