@@ -419,5 +419,9 @@ reduce(f, [x1, x2, x3, x4]) = f(f(f(x1, x2), x3), x4)
 
 pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =pre; pre = cur;
 
+234.palindrome Linked List（one night~cmd）
 
+思路1:创建一个逆序的链表，然后逐个比较是否相同。－－O(1) space条件不满足
+
+思路2:利用快慢指针，将链表后半部分逆序，然后再对比。注意中间指针要赋为NULL。
 
