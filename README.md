@@ -433,3 +433,11 @@ pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =p
 
 876.Middle of the Linked List　快慢指针真棒！
 
+707.Design Linked List.设计链表及链表的基本操作，很全面的一个题。。
+
+2.Add Two Numbers.
+
+好题！注意两个链表长度不相等和链表尾有进位的情况。
+
+
+
