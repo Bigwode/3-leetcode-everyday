@@ -425,3 +425,11 @@ pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =p
 
 思路2:利用快慢指针，将链表后半部分逆序，然后再对比。注意中间指针要赋为NULL。
 
+------
+
+**DAY 23**
+
+237.Delete Node in a Linked List 额，这个题。
+
+876.Middle of the Linked List　快慢指针真棒！
+
