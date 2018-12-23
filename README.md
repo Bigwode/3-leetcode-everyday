@@ -439,5 +439,22 @@ pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =p
 
 好题！注意两个链表长度不相等和链表尾有进位的情况。
 
+------
 
+**DAY 24**
 
+19.Remove Nth Node from End of List.
+
+思路：首先想到的还是快慢指针，注意几个特殊情况。例如，输入是[1],1，可能会出现null有指针的错误。也可能删除的元素在第一个位置上。所以，我们在开头新建一个空结点指向头指针，这样可以有效避免以上可能会出现的问题，
+
+也可以新建一个指向头结点的指针slow实现相同的功能。注意这时候在整个过程中slow一直是指向指针的指针，而(\*slow) = (\*slow)->next;其实就相当于slow->next = slow->next->next;
+
+24.Swap Nodes in Pairs.交换相邻的两个结点。
+
+这样的题目使用递归肯定是可以做的。
+
+迭代的做法需要注意指针交换的顺序。
+
+61.Rotate List.
+
+思路：先遍历一下求链表长度。将tail->next=head接起来，将tail向后移动len-k%len位，head是tail->next;然后tail->next = NULL:
