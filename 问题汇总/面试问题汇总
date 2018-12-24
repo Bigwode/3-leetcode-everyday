@@ -1,0 +1,8 @@
+1、为什么局部下降最快的方向就是梯度的负方向？
+https://blog.csdn.net/red_stone1/article/details/80212814
+思路：写出泰勒公式的一阶展开式，考虑到cos$\alpha$  在两个向量反向时，夹角最大180，取值-1即下降最快。
+
+2、softmax和交叉熵损失函数求导
+
+https://zhuanlan.zhihu.com/p/27223959
+

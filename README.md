@@ -457,4 +457,20 @@ pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =p
 
 61.Rotate List.
 
-思路：先遍历一下求链表长度。将tail->next=head接起来，将tail向后移动len-k%len位，head是tail->next;然后tail->next = NULL:
+思路：先遍历一下求链表长度。将tail->next=head接起来，将tail向后移动len-k%len位，head是tail->next;然后tail->next = NULL;
+
+------
+
+**DAY 25**　**（链表的交换操作，链表的重点！）**
+
+82.Remove Duplicates from Sorted List II
+
+思路：感觉可能会删除第一个结点的操作都会有使用指向第一个结点的指针的指针或者新建一个空结点指向head，注意重复的数可能是连续多个，所以在遇到重复的值的时候，将cur指针先移动到最后一个重复的值，然后改变pre的指针，再移动cur指针。
+
+86.Partition List.
+
+思路：将list分为两段，小于x的连p，大于x的连q，最后再将p和q连接起来。
+
+92.Reverse Linked List II
+
+属于从第几个结点开始往后的元素开始翻转的问题。
