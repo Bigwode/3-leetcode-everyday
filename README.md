@@ -474,3 +474,58 @@ pre和cur连个指针都是从NULL开始，cur=head;head=head->next;cur->next =p
 92.Reverse Linked List II
 
 属于从第几个结点开始往后的元素开始翻转的问题。
+
+------
+
+**DAY 26**   **栈Stack**
+
+关于标准库中stack的使用：
+
+------------------------------------------------------------------------------------------
+
+```c++
+# include<stack>
+stack<char> st; //初始化
+for (char& c : s){}  //遍历
+st.push(c); //进栈
+st.empty(); //判断stack是否为空
+st.top();　//返回栈顶元素，但不会删除
+st.pop(); //出栈，但不会返回
+st.size(); //返回栈中元素个数
+```
+
+**队列queue使用**
+
+```c++
+# include<queue>
+queue<Type> q;
+q.push(item); //进队
+q.pop(); //删除队首，但不返回
+q.front(); //返回队首，但是不删除
+q.back(); //返回队尾，但是不删除
+q.size(); //返回队中元素的个数
+q.empty(); //判断队列是否为空
+```
+
+
+
+------------------------------------------------------------------------------------------
+
+20.Valid Parentheses.
+
+for(char c : s)会复制一个s字符串再进行遍历
+
+for(char& c : s)会直接引用原字符串进行遍历操作。
+
+155.Min Stack
+
+使用两个栈，另一个是小于当前最小值就进栈。
+
+225.Implement Stack using Queues.
+
+232.Implement Queue using Stacks.
+
+
+
+
+
