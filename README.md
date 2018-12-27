@@ -507,6 +507,12 @@ q.size(); //返回队中元素的个数
 q.empty(); //判断队列是否为空
 ```
 
+优先队列 priority queue.
+
+优先队列是具有最高优先级的元素先出。
+
+
+
 
 
 ------------------------------------------------------------------------------------------
@@ -525,7 +531,82 @@ for(char& c : s)会直接引用原字符串进行遍历操作。
 
 232.Implement Queue using Stacks.
 
+------
+
+**DAY 27** 12.27
 
 
 
+```c++
+//先整理一下向量的基本操作
+#include<vector>
+vector型变量的声明及初始化
+vector<int> a; // 无需制定数组长度，可以自我调整
+vector<int> a(10);  // 大小为10
+vector<int> a(10,1);  // 大小为10，初始值都为1
+vector<int> b(a);
+vector<int> b(a.begin(), a.begin()+3);  // 共三个元素
+除此之外，还可以直接使用数组来初始化向量，
+int n[] = {1,2,3,4,5};
+vector<int> a(n, n+5);  //将数组前5个元素作为向量a的初始值。
+vector<int> a(&n[0], &n[4]); //将n[1]-n[4],不包括n[4]的元素作为向量a的初始值。
+//遍历
+for(i=0; i<a.size(); i++)
+	cout<<a[i]<<" " ;  //注意a[i]只能用于获取已存在的元素，不能用于赋值。
+//向量中遍历器的类型为 vector<int>::iterator.
+vector<int>::iterator t ;  // = a.begin();
+for(t=a.begin(); t!=a.end(); t++)位置上
+    cout<<*t<<" " ;
+// 插入
+a.insert(a.begin(), 1000);  // 将1000插入到起始位置
+a.insert(a.begin(), 3, 1000); // 将1000分别插入到0-2位置上
+a.push_back();  //尾部插入元素
+//反转vector
+reverse(a.begin(), a.end());
+//删除
+b.erase(b.begin());
+b.erase(b.begin(), b.begin()+3);  // 删除元素
+b.pop_back();  //删除最后一个元素
+// 创建二维数组
+vector< vector<int> > b(10, vector<int>(5));  //创建一个10*5的int型二维向量
+b.size()是行数，b[i].size()是列数。
+//
+b.back();  // 取最后一个元素
+```
+
+```c++
+// unordered_map, undered_set与map, set用法的区别
+unordered_map存储机制是哈希表，即内部元素是无序的。map是红黑树，map中的元素是按照二叉搜索树存储。
+unordered_map<int, int> m;
+m.count(key);  //如果key存在返回1，不存在返回0.
+m.find(key) == m.end();  //如果key存在，则返回key对应的迭代器，不存在，则返回unordered_map::end
+```
+
+
+
+**参考资料：**
+
+[1]、https://blog.csdn.net/szlcw1/article/details/23196065
+
+[2]、https://www.cnblogs.com/mr-wid/archive/2013/01/22/2871105.html
+
+496.Next Greater Element I.
+
+使用unordered_map和stack结合，首先遍历大的vector，得到每个数值的next greater element，之后再从这里面查找，找不到的就push_back -1。
+
+682.Baseball Game.
+
+stoi(); string 2 int函数
+
+844.Backspace String Compare.
+
+------
+
+**DAY 28** 12.28
+
+933.Number of Recent Calls.
+
+其实就是将queue中与当前元素差小于3000的元素pop()出来之后，返回剩余queue的size.
+
+**Binary Search.专题**
 
