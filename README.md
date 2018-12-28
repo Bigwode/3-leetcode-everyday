@@ -622,5 +622,9 @@ return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
 
 时间复杂度log(N)的做法是使用二分查找。
 
+69.Sqrt(x)
+
+注意溢出问题，能用除法不用乘法，能用局部循环不用全局循环。
+
 
 
