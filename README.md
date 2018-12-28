@@ -610,3 +610,17 @@ stoi(); string 2 int函数
 
 **Binary Search.专题**
 
+35.Search Incert Position
+
+如果直接循环vector去比较的话，时间复杂度是O(N)，不是最优。
+
+STL中的lower_bound()返回的是nums中不小于target的值所在的iterator pointing。
+
+```c++
+return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
+```
+
+时间复杂度log(N)的做法是使用二分查找。
+
+
+
