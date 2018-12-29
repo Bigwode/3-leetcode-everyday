@@ -650,10 +650,50 @@ set是使用红黑树实现的。
 set<int> s(nums1.begin(), nums1.end());
 begin()和end() 返回第一个元素和最后一个元素的迭代器。
 count() //返回某个元素的个数
-s.erase(i)  //删除元素
+erase(i)  //删除元素
 find() // 返回一个指向被查找元素的迭代器
 insert() // 在集合中插入元素
 lower_bound()  // 返回指向不小于某个值的第一个元素的迭代器
 upper_bound() //大于
 ```
+
+
+
+------
+
+**DAY 30** 12.29
+
+```c++
+// map和unordered_map的区别
+map是基于红黑树实现的，内部元素是有序的。而unordered_map是哈希表，内部无序。
+
+```
+
+350.Intersection of Two Arrays II
+
+思路：结合unordered_map，统计出现次数，在另外一个里循环－1.
+
+367.Valid Perfect Square.
+
+必须得把mid的类型声明为long?不然会超出范围。
+
+**Newton迭代法是怎么回事？感觉好简单！**
+
+374.Guess Number Higher or Lower.
+
+注意My number指的是pick的Number而不是你猜的number.题目说法上有问题。
+
+------
+
+**DAY 31**
+
+441.Arraying Coins.
+
+思路1：可以根据等差数列的求和公式来做。
+
+思路2：使用二分法
+
+
+
+
 
