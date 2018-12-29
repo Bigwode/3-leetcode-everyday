@@ -626,5 +626,34 @@ return lower_bound(nums.begin(), nums.end(), target) - nums.begin();
 
 注意溢出问题，能用除法不用乘法，能用局部循环不用全局循环。
 
+------
 
+**DAY 29**
+
+167.Two Sum II - Input array is Sorted.
+
+思路1 简单想法map法，但是O(n), vector配合undordered_map实现。
+
+思路2：双指针法。在前后各设置一个指针，如果两数相加为target，就返回，否则，left和right或加或减。
+
+思路3：二分查找，有点不efficient，偏麻烦。
+
+278.First Bad Version.
+
+二分法
+
+349.Intersection of Two Arrays.
+
+```c++
+# set常用成员函数总结
+set是使用红黑树实现的。
+set<int> s(nums1.begin(), nums1.end());
+begin()和end() 返回第一个元素和最后一个元素的迭代器。
+count() //返回某个元素的个数
+s.erase(i)  //删除元素
+find() // 返回一个指向被查找元素的迭代器
+insert() // 在集合中插入元素
+lower_bound()  // 返回指向不小于某个值的第一个元素的迭代器
+upper_bound() //大于
+```
 
