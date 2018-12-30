@@ -567,6 +567,12 @@ reverse(a.begin(), a.end());
 b.erase(b.begin());
 b.erase(b.begin(), b.begin()+3);  // 删除元素
 b.pop_back();  //删除最后一个元素
+unique(); // 去除相邻重复元素
+b.erase(unique(b.begin() ,b.end()),b.end());
+即，
+vector<int>::iterator iter = unique(ver.begin(),ver.end());
+ver.erase(iter,ver.end());
+
 // 创建二维数组
 vector< vector<int> > b(10, vector<int>(5));  //创建一个10*5的int型二维向量
 b.size()是行数，b[i].size()是列数。
@@ -704,6 +710,14 @@ map是基于红黑树实现的，内部元素是有序的。而unordered_map是�
 704.Binary Search
 
 744.Find Smallest Letter Greater than Target.
+
+1.Two Sum感觉做过很多遍了
+
+26.Remove Duplicates from Sorted Array.
+
+这个题不能只是返回不重复的元素个数，还得直接在原来的数组上直接修改，前面的元素为不重复的元素。
+
+统计重复元素的个数，遇到不重复的元素移动到上一个不重复的位置，即i-count
 
 
 
