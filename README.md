@@ -693,7 +693,17 @@ map是基于红黑树实现的，内部元素是有序的。而unordered_map是�
 
 思路2：使用二分法
 
+475.Heaters.（×××）
 
+思路：遍历house数组，**在heater里找到和每一个house距离最近的那个heater**，并求他们之间的距离为此house所需的半径，算出所有的house所需的半径，其中最大者即为要找的半径。
+
+如果house比最大的heater还要大或者比heater最小的还要小的时候，就要使用最大或者最小的heater来cover。
+
+如果heater中后面一个数的和当前house的差的绝对值<=前一个数和当前house位置差的绝对值，那么就继续遍历下一个位置？  最后我们返回的就是所有差值min里面的最大值。
+
+704.Binary Search
+
+744.Find Smallest Letter Greater than Target.
 
 
 
