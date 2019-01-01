@@ -1,0 +1,8 @@
+问题1：论文中的示例图片大多是一些单物体且背景不是很复杂的，这样的图片我感觉用显著性检测的方法来分割和定位效果会更好一点吧。论文中提出的方法是否可以应用在包含多物体的图像中的物体定位？
+问题2：不是很理解设计的网络结构中SPG-C的作用，因为在经过一个1*1的卷积之后的输出同样也用来监督低层的学习过程，两者有什么区别吗？（根据Inception V3网络结构中的模块设计，Fig.2.中SPG-A的A1的部分应该是多画了一道杠^_^）
+问题3：是如何想到SPG-B1和SPG-B2的二三层共享权重的呢？整个网络是在ILSVRC2016上重新训练的吗？有没有利用迁移学习的相关方法，使用预训练权重微调结果试一试。如果论文中可以展示经过不同的迭代次数产生的masks不断变化的图就更好了。
+问题4：论文中在对比实验的时候使用的SPG-plain是不加SPG-B和SPG-C的结构训练的结果吗？SPG* using predictions with high scores是什么意思？造成top-5 err.比GT-known loc. err.还要低。
+1. 显著性检测的方法一般是有pixel level的supervision， SPG只利用了image-level的supervision信息。SPG应该稍微改一下就能用在多物体上，ACoL也可以。
+2. SPG-C用来给网络注入pixel-level的feedback信息，也就是piexl-level的监督信息，让网络同时学习classification和silency (A1好像是个mistake。。。)
+3. 共享权重是ablition study做的一个实验，因为加了结构相同的模块，所以分别测试了共享和不共享的性能。网络是finetune的，个人认为没有必要展示mask的变化过程，一方面是比较intuitive，初始时很差，逐渐变好。另一方面是，imagenet数据很多，finetune一个epoch后的图片看起来和两个个epoch后的没有很大区别。
+4. 1）是的； 2,3） SPG* 是follow了bolei zhou的测试代码，这部分我也没改，只是跑了个值。top-5 比GT低是合理的， 因为有可能gt class对应的map质量不一定比second highest score对应的map好。
