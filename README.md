@@ -745,7 +745,9 @@ map是基于红黑树实现的，内部元素是有序的。而unordered_map是�
 
 也是从后往前比较大小后插入。
 
+118.Pascal's Triangle
 
+119.Pascal's Triangle II
 
 
 
