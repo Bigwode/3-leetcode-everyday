@@ -749,9 +749,23 @@ map是基于红黑树实现的，内部元素是有序的。而unordered_map是�
 
 119.Pascal's Triangle II
 
+------
 
+**DAY 34**
 
+121.Best Time to Buy and Sell Stock.
 
+累加的思想，从第二个开始，看如果当前卖出的话收益是否大于max或者小于0。
+
+大于max，更新max，小于0，收益置0。
+
+122.Best Time to Buy and Sell Stock II.
+
+相当于只要是后一个比前一个大，就累加；否则就相当于售出了，等下一次后一个比前一个大的时候再售出。
+
+169.Majority Element.
+
+最简单的方法就是排序，然后找最中间位置上的元素。
 
 
 
