@@ -1,3 +1,4 @@
+/*直接插入排序*/
 #include <iostream>
 #include <vector>
 
@@ -5,7 +6,7 @@ using namespace std;
 
 void InsertSort(vector<int>& num)
 {
-    for(int i=0;i<num.size();i++)
+    for(int i=1;i<num.size();i++)
     {
         int cur = num[i];
         int j = i-1;
