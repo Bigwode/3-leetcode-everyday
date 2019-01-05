@@ -661,6 +661,7 @@ find() // 返回一个指向被查找元素的迭代器
 insert() // 在集合中插入元素
 lower_bound()  // 返回指向不小于某个值的第一个元素的迭代器
 upper_bound() //大于
+
 ```
 
 
@@ -783,9 +784,39 @@ map是基于红黑树实现的，内部元素是有序的。而unordered_map是�
 
 ------
 
+**DAY 36**
 
+268.Missing Number.
 
+求和相减，使用求和函数`accumulate(nums.begin(), nums.end(), 0)`
 
+也可以不使用求和函数。
 
+```c++
+vector<int>nums = {0,1,2,4};
+int miss = 0, i = 0;
+for (int num : nums)
+miss += ++i - num;
+return miss;
+```
 
+正常情况下每次都加1，遇到缺失值之后的就不加了。很巧妙
+
+283.Move Zeroes.
+
+思路：设置一个新的变量j在遍历数组之后更新数组，最后如果j不到数组的长度就补0.
+
+414.Third Maximum Number.
+
+思路：不能通过初始化一个三个元素都是`INT_MIN`的数组，逐渐比较大小来查找最大的三个数，或者实现起来就比较麻烦了。或者换成`LONG_MIN`就好了
+
+```c++
+//注意vector中的查找要利用algorithms中的find(vector.begin(), vector.end(), elem)
+```
+
+注意插入到set里的元素默认从小到大排列。
+
+------
+
+**DAY 37**
 

@@ -1,5 +1,7 @@
 ## pytorch实用笔记
 
+
+
 ### 一、数据增强方法
 
 注意顺序：随机裁剪 -> ToTensor -> Normalize
@@ -10,7 +12,24 @@
 
 ### 二、定义Net
 
-继承nn.Module，\_\_init\_\_()中设置上用到的组件，在forward中组装。
+
+
+```python
+class Net(nn.Module):
+  def __init__(self):
+    # nn.Module的子类函数必须在构造函数中执行父类的构造函数。
+    super(Net,self).__init__()  # 相当于nn.Module.__init__(self)
+```
+
+网络的可学习参数通过net.parameters()返回，net.named_parameters()同时返回名称及参数。
+
+forward函数的输入和输出都是Variable，只有Variable才有自动求导功能。
+
+因为计算的导数是累加的，所以在每次反向传播之前，所有参数的梯度清零optimizer.zero_grad()。
+
+optimizer.step()用于更新参数。
+
+
 
 ### 三、权值初始化
 
@@ -99,6 +118,16 @@ add_scalar() 记录标量的变化，通常用于loss好人accuracy.
 add_histogram()监测权值和梯度分布变化情况。
 
 add_image_with_boxes()
+
+
+
+### 九、其他
+
+1、函数名以_结尾的都是inplace方式，会直接修改数据本身。
+
+2、torch.gather(input, dim, index)  #按照index的索引，获取在dim轴上的值。
+
+其中，index的dimensions必须和input一致。注意是沿着dim维度变化的方向索引。
 
 
 
