@@ -1,4 +1,6 @@
-extra_layers = [0,1,2,3,4,5,6,7,8]
+def isIsomorphic(s, t):
+    print(set(zip(s, t)))
+    # return len(set(zip(s, t))) == len(set(s)) and len(set(zip(t, s))) == len(set(t))
 
-for k, v in enumerate(extra_layers[1::2], 2):
-    print(k, v)
+
+isIsomorphic('egg', 'add')

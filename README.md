@@ -818,5 +818,33 @@ return miss;
 
 ------
 
-**DAY 37**
+**DAY 37** ---------**Hash Table.**
+
+ 136.Single Number.
+
+思路：位运算 XOR，异或，不同为1，相同为0.级或运算满足交换律和结合律。所以最后剩下的元素就是没有只有单个的元素.
+
+204.Count Primes.
+
+**埃拉托斯特尼筛法**，sieve of Eratosthenes用来找出一定范围内的所有素数。复杂度是O(*n* log log *n*)
+
+算法的伪代码：
+
+```c++
+fori=2,3,...,且不超过 根号下n;
+if Primes[i]==true:
+	for j = i**2,i**2+i,i**2+2i, ...不超过n:  //这里如果直接累加的话，会有重复的出现。
+		Primes[i] = false;
+count(check.begin(), check.end(), 1);
+```
+
+205.Isomorphic Strings. 同构字符串。
+
+思路：字符串转换成数字串。即将两个字符串每个字符一一映射，下一次碰到这个字符的时候，判断来年各个字符对应的数字是否相同。用map也可以做。
+
+初始化数组的大小是256，是因为整个ASCII的大小是256.
+
+------
+
+**DAY 38**
 

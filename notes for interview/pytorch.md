@@ -129,7 +129,41 @@ add_image_with_boxes()
 
 其中，index的dimensions必须和input一致。注意是沿着dim维度变化的方向索引。
 
+3、Variable支持大部分tensor支持的函数，但不支持部分inplace函数，因为这会修改tensor本身，而在反向传播过程中Variable需要缓存原来的tensor来计算梯度。
 
+4、非叶子节点梯度计算完成之后自动清空，反向传播过程中查看中间节点的梯度，使用autograd.grad函数或者hook.
+
+```python
+/*Method 1*/
+torch.autograd.grad(z, y)  #相当于隐式调用backward()
+/*Method 2*/
+def variable_grad(grad):
+    print(grad)
+hook_handle = y.register_hook(variable_grad)
+hook_handle.remove()  # 用完之后移除hook.
+```
+
+5、如何手写Function实现反向求导过程。
+
+（1）自定义的Function需要继承autograd.Function，没有构造函数_\_init__ ，forward和backward都是静态方法。`@staticmethod`
+
+```python
+补充：一般来说，要使用某个类的方法，需要先实例化一个对象再调用方法。
+而使用@staticmethod或@classmethod，就可以不需要实例化，直接类名.方法名()来调用。
+两者的区别：
+》@staticmethod不需要表示自身对象的self和自身类的cls参数，就跟使用函数一样。
+》@classmethod也不需要self参数，但第一个参数需要是表示自身类的cls参数。
+
+参考资料：https://blog.csdn.net/handsomekang/article/details/9615239
+```
+
+（2）其中forward函数的输入输出都是tensor，backward的输入输出都是variable。
+
+（3）使用Function.apply(variable)即可调用实现的Function。
+
+6、自定义层
+
+继承nn.Module有意识地将输出变量都命名成x，是为了能让python回收一些中间层的输出，从而节省内存。
 
 
 
