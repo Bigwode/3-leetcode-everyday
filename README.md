@@ -812,11 +812,10 @@ return miss;
 
 ```c++
 //注意vector中的查找要利用algorithms中的find(vector.begin(), vector.end(), elem)
+注意插入到set里的元素默认从小到大排列。
 ```
 
-注意插入到set里的元素默认从小到大排列。
-
-------
+****
 
 **DAY 37** ---------**Hash Table.**
 
@@ -847,4 +846,51 @@ count(check.begin(), check.end(), 1);
 ------
 
 **DAY 38**
+
+242.Valid Anagram.判断字符串是不是由同一组字构成的。
+
+思路1：新建一个包含26个元素的数组，遍历的同时分别加一减一，判断最后是否数组元素全为0.
+
+思路2：使用unordered_map遍历加一减一。
+
+```c++
+//unordered_map不会根据key的大小进行排序，存储时是根据key的hash值判断元素是否相同，即unordered_map内部元素是无序的，而map中的元素是按照二叉搜索树存储，进行中序遍历会得到有序遍历。
+map采用红黑树的方式，而hash_map采用哈希的方法。
+for (auto count : counts)
+    if (count.second) return false;
+
+unordered_map<char, int>::iterator it;
+while(it != counts.end())
+    if ((*it).second) return false;
+    return true;
+```
+
+290.Word Pattern
+
+```c++
+//string 常用函数总结
+[], at() //存取单一字符
+data() //将内容以字符数组形式返回
+substr() //返回某个子字符串
+/*********分割字符串*********/
+#include<sstream>
+istringstream strcin(str);
+string s;
+vector<string> vs;
+while(strcin >> s) vs.push_back(s);
+```
+
+最开始的思路：使用unordered_map有的元素就比较是否一致，没有的元素就添加到map里，但是遗漏的是不同的key会出现相同的value的情况。所以需要添加一个判断看是否m的value中有当前的值。
+
+```c++
+m.count(i) //判断某个元素是否在unordered_map中
+for (auto count : m)
+	if (count.second == v[i]) return false;  //遍历unordered_map,查看value.
+```
+
+387.First Unique Character in a String.
+
+遍历两遍字符串，第一遍将每个char出现的次数存放在map或者vector中，第二遍从头看map中的值是否为1，即只出现一次。或者将map的second存放vector，一个位置放坐标，一个放出现的次数。
+
+------
 
