@@ -123,7 +123,7 @@ add_image_with_boxes()
 
 ### 九、其他
 
-1、函数名以_结尾的都是inplace方式，会直接修改数据本身。
+1、函数名以_结尾的都是inplace方式，会直接修改数据本身。只有少数的autograd操作支持inplace操作，例如relu，因为其只需要根据输出就能够推算出反向传播的梯度，这样可以节省内存。
 
 2、torch.gather(input, dim, index)  #按照index的索引，获取在dim轴上的值。
 
@@ -164,6 +164,65 @@ hook_handle.remove()  # 用完之后移除hook.
 6、自定义层
 
 继承nn.Module有意识地将输出变量都命名成x，是为了能让python回收一些中间层的输出，从而节省内存。
+
+```python
+torch.nn.Conv2d(in_channels, out_channels, kernel_size, stride=1, padding=0, dilation=1, groups=1, bias=True)
+变量:
+weight(tensor) - 卷积的权重，大小是(out_channels, in_channels,kernel_size)
+bias(tensor) - 卷积的偏置系数，大小是（out_channel）
+```
+
+7、当模型有可学习的参数时，使用nn.Module()和没有可学习的参数时，可以使用nn.functional()，但是dropout使用nn.Module，因为其在训练和测试阶段不同。
+
+有可学习的层，也可以使用functional代替，但是需要手动定义参数parameter。
+
+8、多GPU并行计算。nn.parallel.data_parallel()直接利用多GPU并行计算；nn.DataParallel()返回一个新的module，能够自动在多GPU上进行并行计算。
+
+9、搭建resnet50.
+
+conv2d
+$$
+H_{out} = \left\lfloor\frac{H_{in}  + 2 \times \text{padding}[0] - \text{dilation}[0]
+                        \times (\text{kernel_size}[0] - 1) - 1}{\text{stride}[0]} + 1\right\rfloor
+$$
+maxpool2d()
+$$
+\text{out}(N_i, C_j, h, w)  = \max_{m=0, \ldots, kH-1} \max_{n=0, \ldots, kW-1}
+                               \text{input}(N_i, C_j, \text{stride}[0] * h + m, \text{stride}[1] * w + n)
+$$
+10、transforms可以通过Lambda封装自定义的转换策略。
+
+ImageFolder() dataset.class_to_idx查看文件夹对应的映射关系。
+
+高负荷的操作放在_\_getitem__中，例如读图片。
+
+11、Dataloader默认Sampler是SequentialSampler，shuffle时是RandomSampler，当样本比例不均衡时，可以使用WeightedRandomSampler。
+
+12、torch.set_default_tensor_type('torch.cuda.FloatTensor')
+
+**13、pytorch的标签要转换为float32吗？**
+
+
+
+**_\_getitem__如何保证在一个epoch里选的样本不重复？**
+
+DataLoader()中的采样策略。
+
+14、距离函数：F.pairwise_distance(x1,x2,p=2,eps=1e-6).   
+$$
+\Vert x \Vert _p := \left( \sum_{i=1}^n  \vert x_i \vert ^ p \right) ^ {1/p}
+$$
+公式中n是特征维度。
+
+15、**model.train()和model.eval()** 
+
+主要是针对model 在训练时和评价时不同的 Batch Normalization  和  Dropout 方法模式。
+
+eval（）时，pytorch会自动把BN和DropOut固定住，不会取平均，而是用训练好的值。
+
+不然的话，一旦test的batch_size过小，很容易就会被BN层导致生成图片颜色失真极大。
+
+
 
 
 
