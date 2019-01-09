@@ -918,14 +918,36 @@ string s.find(elem) //返回的是该元素第一次出现时所在的下标
 
 思路：放到两个vector中，**滑窗**从小的小字符串后开始，这样就可以滑到最后一个元素额。
 
-
-
 ```c++
 {{,},{,}}; //map初始化方式
 vector<int> sv(26, 0), pv(26, 0), res; //vector初始化方式
 ```
 
+------
 
+**DAY 40**
 
+447.Number of Boomerangs.
 
+题目：a tuple of points (i,j,k) such that the distance between i and j equals the distance between i and k(the order of the tuple matters)
+
+思路：先遍历，即分别把每一个元素放到i位置上，再遍历分别求其他元素和i元素之间的距离，存放到map中，最后再遍历map，如果距离相等的有两个，就存在两种可能，如果有3个，就存在6中可能。。。（如果是三元组的话，最大可能是为2），因为不同顺序也算。
+
+463.Island Perimeter
+
+题目：将一个二维数组中的1看作是陆地，0看作是海洋。求陆地的周长。
+
+思路：遍历数组，统计1的个数count以及，两个1相邻的个数mid，最后的结果是count*4-mid*2;
+
+500.Keyboard Row.这题没意思
+
+70.Climbing Stairs.
+
+题目：有n阶楼梯，每一可以爬1个或者两个，问有多少种方式爬到最顶。
+
+思路：动态规划，要想爬到第n层，有两种途径，一种是从n-1层爬1格，一种是从n-2层爬两格。所以到达第n层的步数steps[n]为steps[n-1]+steps[n-2]；
+
+------
+
+**DAY 41**
 

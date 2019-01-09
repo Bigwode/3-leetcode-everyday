@@ -22,8 +22,8 @@
       <file leaf-file-name="matchingnetwork.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MatchingNetwork/matchingnetwork.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="67" column="63" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="63" />
+            <state relative-caret-position="681">
+              <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
               <folding>
                 <element signature="e#16#42#0" expanded="true" />
               </folding>
@@ -34,8 +34,8 @@
       <file leaf-file-name="matchnn.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MatchingNetwork/matchnn.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="291">
-              <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+            <state relative-caret-position="2280">
+              <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
               <folding>
                 <element signature="e#16#39#0" expanded="true" />
               </folding>
@@ -46,7 +46,7 @@
       <file leaf-file-name="matchingnetworkwithrelationalembedding.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MatchingNetwork/matchingnetworkwithrelationalembedding.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
+            <state relative-caret-position="2520">
               <caret line="105" column="42" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
               <folding>
                 <element signature="e#16#42#0" expanded="true" />
@@ -118,7 +118,7 @@
     </entry>
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
+    <navigator proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -131,31 +131,12 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="SSD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSD" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SSD" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SSD" type="462c0819:PsiDirectoryNode" />
-              <item name="MatchingNetwork" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Algo&amp;DS" />
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -596,7 +577,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-307">
           <caret line="2708" column="4" lean-forward="false" selection-start-line="2708" selection-start-column="4" selection-end-line="2708" selection-end-column="4" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -604,7 +584,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="149">
           <caret line="314" column="24" lean-forward="false" selection-start-line="314" selection-start-column="24" selection-end-line="314" selection-end-column="24" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -638,7 +617,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
           <caret line="99" column="8" lean-forward="false" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="8" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,7 +630,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MatchingNetwork/matchingnetworkwithrelationalembedding.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
+        <state relative-caret-position="2520">
           <caret line="105" column="42" lean-forward="false" selection-start-line="105" selection-start-column="42" selection-end-line="105" selection-end-column="42" />
           <folding>
             <element signature="e#16#42#0" expanded="true" />
@@ -662,8 +640,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MatchingNetwork/matchnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="291">
-          <caret line="95" column="0" lean-forward="true" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
+        <state relative-caret-position="2280">
+          <caret line="95" column="0" lean-forward="false" selection-start-line="95" selection-start-column="0" selection-end-line="95" selection-end-column="0" />
           <folding>
             <element signature="e#16#39#0" expanded="true" />
           </folding>
@@ -672,8 +650,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MatchingNetwork/matchingnetwork.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="67" column="63" lean-forward="true" selection-start-line="67" selection-start-column="37" selection-end-line="67" selection-end-column="63" />
+        <state relative-caret-position="681">
+          <caret line="41" column="17" lean-forward="true" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
           <folding>
             <element signature="e#16#42#0" expanded="true" />
           </folding>
