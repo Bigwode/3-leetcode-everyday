@@ -965,5 +965,17 @@ vector<int> sv(26, 0), pv(26, 0), res; //vector初始化方式
 
 746.Min Cost Climbing Stairs.
 
+两种定义dp(n)的方式，一种是我们定义dp(n)为爬到第n阶楼梯的最小代价，即第n阶楼梯还不用花钱。
 
+dp(n)=min(dp(n-1)+cost(n-1), dp(n-2)+cost[n-2]);
+
+return dp(n);
+
+第二种定义方式是，爬过第n阶楼梯所需要的最小代价，即第n阶楼梯需要花钱。
+
+dp(n)=min(dp(n-1), dp(n-2))+cost[n];
+
+return min(dp(n-1), dp(n-2));
+
+我们可以使用三个变量来替代dp()数组保存的作用，这样就使得空间复杂度变成O(1)
 

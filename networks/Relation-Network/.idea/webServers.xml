@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="a0459cd1-2e2e-4198-b365-e332b61086ef" name="RN" url="http://csce@10.20.4.192">
+        <fileTransfer host="csce@10.20.4.192" port="22" rootFolder="/home/csce" accessType="SFTP">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="22" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
