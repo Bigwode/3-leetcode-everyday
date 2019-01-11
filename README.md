@@ -979,3 +979,11 @@ return min(dp(n-1), dp(n-2));
 
 我们可以使用三个变量来替代dp()数组保存的作用，这样就使得空间复杂度变成O(1)
 
+------
+
+**DAY 42**  **Backtracking**
+
+401.Binary Watch.
+
+
+

@@ -62,13 +62,13 @@ pytorch: 如何优雅的将 int list 转成 one-hot形式:
 # out[index[i, j], j] = value[i, j] dim=0
 # out[i,index[i, j]] = value[i, j]] dim=1 
 
-
-
-
-
 ```
 
-
+```python
+a = torch.gather(0,16).view(4,4)
+index = torch.LongTensor([[0,1,2,3]])
+a.gather(0,index)  # get tensor([[0,5,10,15]])
+```
 
 
 
