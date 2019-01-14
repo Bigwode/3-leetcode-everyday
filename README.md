@@ -981,9 +981,11 @@ return min(dp(n-1), dp(n-2));
 
 ------
 
-**DAY 42**  **Backtracking**
+**DAY 42** 1.14
 
-401.Binary Watch.
+100.Same Tree
+
+判断两棵树是否相同。思路：递归
 
 
 
