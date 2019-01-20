@@ -1007,5 +1007,20 @@ return min(dp(n-1), dp(n-2));
 
 ------
 
-**DAY 44**
+**DAY 44** 1.20
 
+108.Convert Sorted Array to Binary Search Tree.
+
+把一个升序排列的数组转换为一个高度平衡的二叉树：每个结点的两颗子树的深度差不大于1。
+
+思路：每次在中间位置上new一个新的节点，(start, mid)和(mid+1, end)分别递归生成左右子树。
+
+110.Balanced Binary Tree.
+
+判断一个二叉树是不是height-balanced二叉树。
+
+思路1：对于每个结点，计算其左右子树的depth()递归判断是否满足小于1的条件。复杂度：O(n^2)
+
+思路2：
+
+https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O(N)-solution-would-be-better
