@@ -1029,6 +1029,8 @@ https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O
 
 求一个二叉树所有分支上的最小深度：分别求左右分支的最小深度的最小值。
 
+------
+
 **DAY 45** 1.27
 
 112.Path Sum
@@ -1040,3 +1042,33 @@ https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O
 226.Invert Binary Tree.
 
 交换二叉树的任意子树的左右分支：如果root==NULL 返回NULL，否则分别递归调用函数来交换左右子树，最后交换头结点的左右子树。
+
+```bash
+# 不同情况下github合并代码方法：
+(1)远程仓库改变，而本地仓库没有改变的情况：
+$ git remote -v  # 首先查看远程库
+$ git fetch origin master  # 把远程库更新到本地
+(2)远程库没有改变，本地库发生改变：
+$ git status
+$ git add .
+$ git commit -m ""
+$ git push -u origin master
+(3)都有改变：
+$ git log master.. origin/master  # 比较远程更新和本地库之间的差别
+$ git merge origin/master  # 合并远程库
+
+参考：http://scofieldwyq.github.io/2016/02/29/git%E4%BB%8E%E8%BF%9C%E7%A8%8B%E5%BA%93%E5%90%8C%E6%AD%A5%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93/
+```
+
+235.Lowest Common Ancestor of a Binary Search Tree.
+
+找到二叉搜索树中两个结点的最近的公共祖先(LCA)。其中一个结点可能是另外一个结点的祖先。
+
+binary search tree.的属性：左子树包含结点的值小于等于右子树结点的值；
+
+思路：如果p和q同时大于root的值，递归调用右分支求LCA，反之，同时小于root结点的值，递归调用左分支求LCA。否则root结点就是我们要找的结点。
+
+------
+
+**DAY 46**
+
