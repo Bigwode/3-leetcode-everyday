@@ -1029,3 +1029,11 @@ https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O
 
 求一个二叉树所有分支上的最小深度：分别求左右分支的最小深度的最小值。
 
+**DAY 45** 1.27
+
+112.Path Sum
+
+判断一颗二叉树中root-to-leaf是否有sum的通路。
+
+每过一个要减去当前的val值。当到叶子节点的时候，判断是不是sum==0了。递归调用函数分别看左右分支是否有满足条件的通路存在。
+
