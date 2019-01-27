@@ -1024,3 +1024,8 @@ return min(dp(n-1), dp(n-2));
 思路2：
 
 https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O(N)-solution-would-be-better
+
+111.Minimum Depth of Binary Tree.
+
+求一个二叉树所有分支上的最小深度：分别求左右分支的最小深度的最小值。
+
