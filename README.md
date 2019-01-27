@@ -1072,3 +1072,27 @@ binary search tree.的属性：左子树包含结点的值小于等于右子树�
 
 **DAY 46**
 
+257.Binary Tree Paths
+
+题目：二叉树的所有root-to-leaf通路
+
+思路：深度遍历左子树和右子树，累计字符串，到叶子节点push进vector。
+
+to_string()转换为字符串。
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
