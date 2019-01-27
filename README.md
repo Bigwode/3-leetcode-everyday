@@ -1037,3 +1037,6 @@ https://leetcode.com/problems/balanced-binary-tree/discuss/35691/The-bottom-up-O
 
 每过一个要减去当前的val值。当到叶子节点的时候，判断是不是sum==0了。递归调用函数分别看左右分支是否有满足条件的通路存在。
 
+226.Invert Binary Tree.
+
+交换二叉树的任意子树的左右分支：如果root==NULL 返回NULL，否则分别递归调用函数来交换左右子树，最后交换头结点的左右子树。
