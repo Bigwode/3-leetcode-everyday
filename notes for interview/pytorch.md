@@ -222,11 +222,31 @@ eval（）时，pytorch会自动把BN和DropOut固定住，不会取平均，而
 
 不然的话，一旦test的batch_size过小，很容易就会被BN层导致生成图片颜色失真极大。
 
+------
 
+pytorch学习笔记
 
+1、动态图与静态图。
 
+动态图：每运行一行代码完成变量的新建或者一个操作的运算，在cuda里计算图完成一步。
 
+静态图：先建好图，之后就不能动了，然后喂数据。tensorflow2.0动态库优先。
 
+2、cuda加速
+
+```python
+torch.cuda.is_available()
+device = torch.device('cuda')  # “cuda:0”
+x.to(device)
+```
+
+3、自动求导
+
+```python
+grads = autograd.grad(y, [a, b, c])
+```
+
+4、梯度下降算法
 
 
 
