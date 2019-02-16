@@ -246,7 +246,33 @@ x.to(device)
 grads = autograd.grad(y, [a, b, c])
 ```
 
-4、梯度下降算法
+4、张量操作
+
+```python
+x    = torch.randn(3,4)
+mask = x.ge(0.5)  # great equal.
+torch.mask_select(x,mask)  # select by mask
+torch.take(x, torch.tensor([0,2]))  # select by flatten index.
+b.expand(4,32,14,-1)  # 数值为拷贝之后维度。扩张维度，不变的维度记为-1 ; 只能扩张为1的维度  
+					  # 推荐使用
+b.repeat(4,32,1,1)  #数值为拷贝的次数。
+x.transpose(0,1).contiguous().view()  # transpose()之后先变为连续再使用view
+torch.all(torch.eq(a1,a2))  # 如果a1,a2相等返回1，不相同返回0
+x.permute(0,2,3,1)  #直接交换多个维度
+torch.cat([a,b], dim=0)  # /axis是将dim维度加起来
+torch.stack([a,b], dim=0)  # 是新创建一个新的维度将两者叠起来，
+# 例如stack([[32,8],[32,8]],dim=0)=[2,32,8]
+x,y = z.split([1,2],dim=0)  # 按照dim0(维度为3)拆分
+# *是相同位置相乘，即element-wise相乘。matmul(@)是矩阵相乘。
+grad.clamp(min,max)  # 裁剪
+a.argmax(dim=1, keepdim=True)  # dimension保持一致
+a.topk(m, dim=1, largest=False最小的)  # 返回最大的值和其对应的索引。
+a.kthvalue()  # 默认第k小
+torch.where(condition, x, y)  # if condition ,return x, else y.
+torch.gather(input, dim, index, out=None)
+# 类似于一个查表的过程。在dim维度上，找到index位置上的数值。输出的维度和index维度一致。
+
+```
 
 
 
