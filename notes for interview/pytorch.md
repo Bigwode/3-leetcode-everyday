@@ -274,7 +274,55 @@ torch.gather(input, dim, index, out=None)
 
 ```
 
+5、损失函数求导
+
+```python
+w.requires_grad_()  # 需要重新动态图建图
+torch.autograd.grad(loss, [w])  # 手动求导
+mse.backward()  # 所有需要求导的变量自动求导
+w.grad
+F.cross_entropy()的作用相当于F.softmax()+log()+nll_loss()
+```
+
+6、visdom
+
+```python
+python -m visdom.server
+from visdom import Visdom
+viz = Visdom()
+viz.line([0.], [0.], win='train_loss',opts=dict(title='train loss'))  #single-line
+viz.line([loss.item()], [global_step], win='trian_loss', update='append')
+###################
+viz.line([0., 0.], [0.], win='test',opts=dict(title='train loss', 
+                                             legend=['loss', 'acc.']))  #single-line
+viz.line([test_loss, correct / len(test_loader.dataset)], [global_step], win='test', update='append')
+###################
+viz.images(data.view(-1,1,28,28), win='x')
+viz.text(str(pred.detach().cpu().numpy()), win='pred', opts=dict(title='pred'))  
+# 推荐使用x.detach()来访问数据，更加安全。
+# 使用loss += loss.detach()来获取不需要梯度回传的部分。
+# 或者使用loss.item()直接获得所对应的python数据类型。
+```
+
+7、train_test_val split
+
+```python
+train_db, val_db = torch.utils.data.random_split(train_db, [5,1])  # 返回的是一个torch.utils.data.dataset.Subset，后接
+train_loader = torch.utils.data.DataLoader(train_db, batch_size=1, shuffle=True)
+for i, input in enumerate(train_loader):
+# 或者使用 k-fold cross-validation
+```
+
+step_lr 或者ReduceLROnPlateau(optimizer)用来调整学习率。
+
+**vars()** 函数返回对象object的属性和属性值的字典对象。
+
+8、经典卷积神经网络
+
+```python
+nn.Parameter(torch.randn(outp, inp))  # requires_grad默认为True.
+```
 
 
 
-
+pytorch的一些坑：https://www.zhihu.com/question/67209417
