@@ -554,3 +554,9 @@ inline String& String::operator=(const String& str)
 }
 ```
 
+**stack(栈)和heap(堆)**
+
+栈：是存在于某个作用域的一块内存空间。例如当你调用函数，函数本身即会形成一个stack用来放置它所接受的参数，局部变量，以及返回地址。
+
+Heap 可以通过new动态分配。
+
