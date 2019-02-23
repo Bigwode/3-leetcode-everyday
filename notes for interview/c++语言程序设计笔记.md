@@ -199,7 +199,7 @@ int Point::count = 0;
 
 静态成员函数可以直接访问该类的静态数据成员和函数成员，而访问非静态成员，必须通过对象名。
 
-静态成员函数一般习惯于通过类名（或者对象名）来调用，而非静态成员函数只能通过对象名来调用。
+静态成员函数**一般习惯于通过类名（或者对象名）来调用**，而非静态成员函数只能通过对象名来调用。
 
 ```C++
 static void showCount(){}
@@ -505,7 +505,7 @@ const complex c1(1,2);  // c1.real();
 
 **friend(友元)**
 
-相同class的各个Objects互为friends.
+**相同class的各个Objects互为friends.**
 
 函数内局部变量不能返回reference，其他情况都可以返回引用。
 
@@ -560,3 +560,111 @@ inline String& String::operator=(const String& str)
 
 Heap 可以通过new动态分配。
 
+------
+
+https://github.com/huihut/interview
+
+1、常对象成员，只能在初始化列表赋值；
+
+**const**可以用于重载函数的区分；
+
+常成员函数，int getValue() const;不得修改类中的任何数据成员的值。
+
+常对象 const A a; 常对象，只能调用常成员函数，更新常成员变量。
+
+```C++
+// 函数
+void function1(const int Var);           // 传递过来的参数在函数内不可变
+void function2(const char* Var);         // 参数指针所指内容为常量
+void function3(char* const Var);         // 参数指针为常指针
+void function4(const int& Var);          // 引用参数在函数内为常量
+```
+
+**static:**
+
+修饰成员变量，修饰成员变量使所有的对象只保存一个该变量，而且不需要生成对象就可以访问该成员。
+
+修饰成员函数，修饰成员函数使得不需要生成对象就可以访问该函数，但是在 static 函数内不能访问非静态成员。
+
+**this指针：**
+
+`this` 指针是一个隐含于每一个非静态成员函数中的特殊指针。它指向正在被该成员函数操作的那个对象。
+
+当对一个对象调用成员函数时，编译程序先将对象的地址赋给 `this` 指针，然后调用成员函数，每次成员函数存取数据成员时，由隐含使用 `this` 指针。
+
+虚函数可以内联吗？
+
+虚函数可以是内联函数，内联是可以修饰虚函数的，但是当虚函数表现多态性的时候不能内联。
+
+`inline virtual` 唯一可以内联的时候是：编译器知道所调用的对象是哪个类（如 `Base::who()`），这只有在编译器具有实际对象而不是对象的指针或引用时才会发生。
+
+- 普通函数（非类成员函数）不能是虚函数
+- 静态函数（static）不能是虚函数
+- 构造函数不能是虚函数（因为在调用构造函数时，虚表指针并没有在对象的内存空间中，必须要构造函数调用完成后才会形成虚表指针）
+- 内联函数不能是表现多态性时的虚函数，
+
+**虚析构函数**是为了解决基类的指针指向派生类对象，并用基类的指针删除派生类对象。
+
+```C++
+class Shape
+{
+public:
+    Shape();                    // 构造函数不能是虚函数
+    virtual double calcArea();
+    virtual ~Shape();           // 虚析构函数
+};
+class Circle : public Shape     // 圆形类
+{
+public:
+    virtual double calcArea();
+    ...
+};
+int main()
+{
+    Shape * shape1 = new Circle(4.0);
+    shape1->calcArea();    
+    delete shape1;  // 因为Shape有虚析构函数，所以delete释放内存时，先调用子类析构函数，再调用基类析构函数，防止内存泄漏。
+    shape1 = NULL;
+    return 0；
+}
+```
+
+### 问题1：成员变量的初始化顺序？
+
+1、成员变量在**使用初始化列表初始化时**，与构造函数中初始化成员列表的顺序无关，只与定义成员变量的顺序有关。因为成员变量的初始化次序是根据变量在内存中次序有关，而内存中的排列顺序早在编译期就根据变量的定义次序决定了。
+
+2、如果**不使用初始化列表初始化**，在构造函数内初始化时，此时与成员变量在构造函数中的位置有关。
+
+3、注意：类成员在定义时，是不能初始化的。
+
+4、注意：类中const成员常量必须在构造函数初始化列表中初始化。
+
+5、注意：类中static成员变量，必须在类外初始化。
+
+**变量的初始化顺序**就应该是：
+
+- 1 基类的静态变量或全局变量
+- 2 派生类的静态变量或全局变量
+- 3 基类的成员变量
+- 4 派生类的成员变量
+
+https://blog.csdn.net/zhaojinjia/article/details/8785912
+
+### 问题2：C++与类型转换相关的4个关键字
+
+const_cast, static_cast, dynamic_cast, reinterpret_cast.
+
+```C++
+static_cast<char>(i)  // 若两个类型之间相关；主要用于c++中内置的基本数据类型之间的转换
+reinterpret_cast<type-id>(expression)  // type-id 必须是一个指针、引用、算术类型、函数指针或者成员指针。它可以把一个指针转换成一个内置类型，也可以把一个内置类型转换成一个指针。
+dynamic_cast<type-id>()  // 使用dynamic_cast进行转换的,基类中一定要有虚函数,否则编译不通过。可以将一个基类对象指针（或引用）cast到继承类指针。
+const_cast<>()  // 使用const_cast可以将不是const类型的数据转换为const类型或者把const属性去掉。
+```
+
+### 问题3：智能指针
+
+
+
+http://www.cnblogs.com/wxquare/p/4759020.html
+
+https://blog.csdn.net/worldwindjp/article/details/18843087#comments

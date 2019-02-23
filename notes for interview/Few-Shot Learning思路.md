@@ -53,3 +53,10 @@ Matching networks for one shot learning.
 prototypical networks for few-shot learning.
 
 learning to compare : relation network for few-shot learning .
+
+
+
+**MarginRankingLoss**
+$$
+\text{loss}(x, y) = \max(0, -y * (x1 - x2) + \text{margin})
+$$
