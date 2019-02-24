@@ -484,7 +484,32 @@ complex (double r=0, double i =0):re(r), im(i){};
 
 构造函数放在private区？
 
-Singleton设计模式
+静态函数没有this pointer；只能处理静态数据；
+
+静态数据，需在类外定义，
+
+```C++
+double Account::m_rate=8.0;
+```
+
+Singleton设计模式：
+
+```C++
+class A{
+  public:
+  	static A& getInstance();
+  	setup(){...}
+  private:
+  	A();
+  	A(const A& rhs);
+}
+
+A& A::getInstance()
+{
+  static A a;
+  return a;
+}  // A::getInstance().setup();
+```
 
 **const member functions(常量成员函数)**
 
