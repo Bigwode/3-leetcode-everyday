@@ -3,6 +3,7 @@ import keras
 
 np.random.seed(2191)  # for reproducibility
 
+
 class OmniglotNShotDataset():
     def __init__(self,batch_size,classes_per_set=5,samples_per_class=1,trainsize=32000,valsize=10000):
 
