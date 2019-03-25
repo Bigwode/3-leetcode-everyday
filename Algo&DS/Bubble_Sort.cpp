@@ -4,7 +4,7 @@
 using namespace std;
 
 
-void bubble_sort(vector<int>& num)
+void bubble_sort(vector<int>& num)  //沉底排序...
 {
     for (int i=0; i<num.size()-1; i++)
     {
