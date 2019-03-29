@@ -18,10 +18,10 @@ public:
 
         if(pNode->right != nullptr)  //如果有右子树，则找右子树的最左节点
         {
-            TreeLinkNode* pRight = pNode->right;
-            while(pRight->left)
-                pRight = pRight->left;
-            return pRight;
+            pNode = pNode->right;
+            while(pNode->left)
+                pNode = pNode->left;
+            return pNode;
         }
         while(pNode->next != nullptr)  //没右子树，则找第一个当前节点是父节点左孩子的节点
         {

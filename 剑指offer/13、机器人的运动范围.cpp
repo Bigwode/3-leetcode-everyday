@@ -12,7 +12,7 @@ public:
     }
     
     bool check(int threshold, int rows, int cols, int row, int col, vector<bool>& isVisited)
-    {
+    {  // 判断是否可以访问(row, col)位置
         if(row>=0 && row<rows && col>=0 && col<cols && 
            (noLargerTarget(row)+noLargerTarget(col))<=threshold && 
            !isVisited[row*cols+col])
@@ -23,7 +23,7 @@ public:
     int moving(int threshold, int rows, int cols, int row, int col, vector<bool>& isVisited)
     {
         int count = 0;
-        if(check(threshold, rows, cols, row, col, isVisited))
+        if(check(threshold, rows, cols, row, col, isVisited))　　// 如果可以访问该位置
         {
             isVisited[row*cols+col] = 1;
             count = 1 + moving(threshold, rows, cols, row-1, col, isVisited)

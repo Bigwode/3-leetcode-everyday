@@ -57,6 +57,7 @@ void printNMax(int length)
     {
         printMax(number, length);
     }
+    delete[] number;
 }
 
 int main()

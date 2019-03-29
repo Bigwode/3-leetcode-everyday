@@ -1,6 +1,6 @@
 /*
  * 题目14：剪绳子
- * 一根长为length（大于1）的绳子，减成m（大于1）份，使其所有长度的乘积最大。
+ * 一根长为length（大于1）的绳子，减成m（大于1）段，使其所有长度的乘积最大。
  * */
 #include <iostream>
 #include <vector>
@@ -14,7 +14,7 @@ int maxProduct(int length)  // 动态规划 时间复杂度：O(n2) 空间复杂
     if(length == 2) return 1;
     if(length == 3) return 2;
 
-    int* res = new int[length+1];
+    int* res = new int[length+1];  // 这个数组是用来存储剪绳之后的乘积的最大值
     res[0] = 0;
     res[1] = 1;
     res[2] = 2;
@@ -22,7 +22,7 @@ int maxProduct(int length)  // 动态规划 时间复杂度：O(n2) 空间复杂
     for(int i=4;i<=length; i++)
     {
         int max = 0;
-        for(int j=1; j<=i/2; j++)
+        for(int j=1; j<=i/2; j++)　　// 是因为j和i-j在超过i/2的时候会重复
         {
             if(res[j]*res[i-j]>max)
                 max = res[j]*res[i-j];
@@ -35,7 +35,7 @@ int maxProduct(int length)  // 动态规划 时间复杂度：O(n2) 空间复杂
 }
 
 
-int maxProduct2(int length)  // 动态规划 时间复杂度：O(n2) 空间复杂度：O(n)
+int maxProduct2(int length)  // 贪婪算法 时间复杂度：O(1) 空间复杂度：O(1)
 {
     if(length<2) return 0;
     if(length==2) return 1;

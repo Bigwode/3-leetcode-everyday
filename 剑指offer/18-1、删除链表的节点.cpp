@@ -21,7 +21,7 @@ void deleteNode(ListNode** pNode, ListNode* delNode)
     if(pNode== nullptr || delNode== nullptr)
         return;
 
-    if(delNode->next == nullptr)  // 要删除的节点不是尾节点
+    if(delNode->next != nullptr)  // 要删除的节点不是尾节点
     {
         ListNode* pNext = delNode->next;
         delNode->val    = pNext->val;
@@ -39,7 +39,7 @@ void deleteNode(ListNode** pNode, ListNode* delNode)
     else  //要删除的节点是尾节点
     {
         ListNode* p = *pNode;
-        while(p->next)
+        while(p->next != delNode)
         {
             p = p->next;
         }

@@ -13,9 +13,9 @@ public:
         if(pListHead==nullptr || k==0) return nullptr;
         ListNode* p1 = pListHead;
         ListNode* p2 = pListHead;
-        for(int i=0; i<k-1; i++)
+        for(int i=0; i<k-1; i++) // 快指针先走k-1步
         {
-            if(p1->next == nullptr) return nullptr;
+            if(p1->next == nullptr) return nullptr;　// 注意这里是p1->next，画图看结果
             else 
                 p1 = p1->next;
         }

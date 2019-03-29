@@ -5,7 +5,7 @@ public:
         char* before = *string;
         while(**string != '\0' && **string >= '0' && **string <='9')
         {
-            ++(*string);  // 指针前移一个
+            ++(*string);  // 通过指针判断是否存在0-9的数字
         }
         return *string > before;
     }
@@ -24,12 +24,12 @@ public:
             return false;
         bool numeric = isInt(&string);  // 判断整数部分是否包含含有正负号的整数
         
-        if(*string == '.')
+        if(*string == '.')  // 小数部分
         {
             ++string;
-            numeric = isUnsignedInt(&string)  || numeric;  // 判断小数部分是否包含无符号整数，小数点前后只需要有一方含有整数就可以
+            numeric = isUnsignedInt(&string)  || numeric;  // 小数点前后只需要有一侧含有整数就可以，但是小数点后不能有正负号
         }
-        if(*string == 'e' || *string == 'E')
+        if(*string == 'e' || *string == 'E')  // 指数部分
         {
             ++string;
             numeric = numeric && isInt(&string);  // E/e的两侧必须都含有整数

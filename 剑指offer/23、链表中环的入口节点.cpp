@@ -12,16 +12,12 @@ public:
     ListNode* MeetingNode(ListNode* pHead)
     {
         if(pHead==nullptr) return nullptr;
-        ListNode* pSlow = pHead->next;
-        if(pSlow == nullptr) return nullptr;
-        ListNode* pFast = pSlow->next;
-        if(pFast == nullptr) return nullptr;
-        while(pSlow != nullptr && pFast != nullptr)
+        ListNode* pSlow = pHead;
+        ListNode* pFast = pHead;
+        while(pSlow != nullptr && pFast != nullptr && pFast->next != nullptr)
         {
             pSlow = pSlow->next;
-            pFast = pFast->next;
-            if(pFast != nullptr)
-                pFast = pFast->next;
+            pFast = pFast->next->next;
             if(pFast == pSlow)
                 return pFast;
         }

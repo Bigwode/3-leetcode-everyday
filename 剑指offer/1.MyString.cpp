@@ -3,6 +3,7 @@
 */
 #include<iostream>
 #include<cstring>
+
 using namespace std;
 
 class MyString{
@@ -38,7 +39,7 @@ MyString::MyString(const MyString &str) {
 }
 
 inline MyString& MyString::operator= (const MyString& str){
-    if(this == &str)
+    if(this == &str)  // 检测自我赋值
         return *this;
 
     delete[] m_data;

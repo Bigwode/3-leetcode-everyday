@@ -18,7 +18,7 @@ public:
         else
             return isSubtree(pRoot1->left, pRoot2->left) && isSubtree(pRoot1->right, pRoot2->right);  // 如果左子树和右子树都相同
     }
-    
+     
     bool HasSubtree(TreeNode* pRoot1, TreeNode* pRoot2)
     {
         bool result = false;

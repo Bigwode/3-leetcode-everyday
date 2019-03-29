@@ -2,10 +2,12 @@ class Solution {
 public:
     int jumpFloor(int number)
     {
-        int begin = 0;
-        int end   = 1;
-        int result= 0; 
-        for(int i=1; i<=number; i++)
+        if(number<2)
+            return number==0 ? 0:1;
+        int begin = 1;
+        int end   = 2;
+        int result= 2; 
+        for(int i=3; i<=number; i++)
         {
             result = begin+end;
             begin  = end;

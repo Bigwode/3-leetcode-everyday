@@ -7,11 +7,11 @@ public:
         int i = 0, j = len-1;
         while(i<j)
         {
-            while(i<j && (array[i]&1)==1) ++i;
-            while(i<j && (array[j]&1)==0) --j;
+            while(i<j && (array[i]&1)==1) ++i;　　// 奇数后移 
+            while(i<j && (array[j]&1)==0) --j;  //　偶数前移
             if(i<j)
             {
-                int temp = array[i];
+                int temp = array[i];　　// 交换前面的偶数和后面的奇数
                 array[i] = array[j];
                 array[j] = temp;
                 ++i;
