@@ -15,7 +15,7 @@ public:
         if(!root) return;
         path.push_back(root->val);  // 将当前节点的值加到当前路径中
         expectNumber = expectNumber - (root->val);
-        if (!root->left && !root->right && expectNumber == 0)
+        if (!root->left && !root->right && expectNumber == 0)  // 如果到达叶子节点并且路径之和相等
             res.push_back(path);
         else
         {
