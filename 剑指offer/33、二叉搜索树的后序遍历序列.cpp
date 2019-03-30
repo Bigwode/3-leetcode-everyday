@@ -18,10 +18,10 @@ public:
                 return false;
         }
         bool left = true;
-        if(i>0)
+        if(i>0)  // 确保元素数大于1
             left = VerifySquenceOfBST(vector<int>(sequence.begin(), sequence.begin()+i));
         bool right = true;
-        if(i<len-1)
+        if(i<len-1)  //  
             right = VerifySquenceOfBST(vector<int>(sequence.begin()+i, sequence.begin()+len-1));
         return left && right;
     }
