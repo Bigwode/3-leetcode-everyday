@@ -1,3 +1,31 @@
+/******************************Method 1******************************/
+class Solution {
+public:
+    
+    TreeNode* Convert(TreeNode* root)
+    {
+        if(root==NULL)  return NULL;//递归边界
+        if(root->left==NULL && root->right==NULL)  return root;//递归边界
+        
+        TreeNode* left = Convert(root->left);//递归左边
+        TreeNode* p = left;
+        while(p!=NULL && p->right!=NULL)//找左子树最右节点
+            p = p->right;//当p->right为NULL的时候跳出循环
+        if(left)//若左子树不空
+        {
+            p->right = root;
+            root->left = p;
+        }
+        TreeNode* right = Convert(root->right);//递归右边
+        if(right)//若右子树不空
+        {
+            root->right = right;
+            right->left = root;
+        }
+        return left ? left : root;
+    }
+};
+/******************************Method 2:剑指offer******************************/
 /*
 struct TreeNode {
 	int val;
@@ -20,7 +48,7 @@ public:
         pCurrent->left = *pLastNodeinList;  //　根
         if(*pLastNodeinList != nullptr)
             (*pLastNodeinList)->right = pCurrent;
-        *pLastNodeinList = pCurrent;
+        *pLastNodeinList = pCurrent;  // 最大节点
         
         if(pCurrent->right != nullptr)  //　右
             ConvertToList(pCurrent->right, pLastNodeinList);

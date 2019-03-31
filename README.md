@@ -1535,17 +1535,52 @@ bool right = true;
 
 (3)、按照奇数和偶数位置拆分两个链表。奇数位置上的节点是原始链表，偶数位置上的节点是复制出来的链表。初始化使得pNode在pClode之前，这样循环的终止条件简单一点。
 
-**36、二叉搜索树和双向链表**
+**36、二叉搜索树和双向链表**(*\*\*\*\*)
 
 > 二叉搜索树：若它的左子**树**不空，则左子**树**上所有结点的值均小于它的根结点的值； 若它的右子**树**不空，则右子**树**上所有结点的值均大于它的根结点的值； 它的左、右子**树**也分别为**二叉**排序**树**。
 
-思路：原先指向左子树的指针调整为指向前一个节点的指针，原先指向右子树的指针调整为指向后一个节点的指针。
+思路：
 
-设置一个指向双向链表尾节点的指针；相当于中序遍历，访问到根节点的时候，设置左右方向所指向的位置。
+```c++
+    TreeNode* Convert(TreeNode* root)
+    {
+        if(root==nullptr)  return nullptr;  //递归边界
+        if(root->left==nullptr && root->right==nullptr)  return root;  //递归边界
+
+        TreeNode* left = Convert(root->left);  //递归左边
+        TreeNode* p = left;
+        while(p!=nullptr && p->right!=nullptr)  //找左子树最右节点
+            p = p->right;  //当p->right为NULL的时候跳出循环
+        if(left)  //若左子树不空
+        {
+            p->right = root;
+            root->left = p;
+        }
+        TreeNode* right = Convert(root->right);  //递归右边
+        if(right)  //若右子树不空
+        {
+            root->right = right;
+            right->left = root;
+        }
+        return left ? left : root;
+    }
+```
 
 **37、二叉树的序列化和反序列化**
 
 序列化：将二叉树按照前序遍历保存到字符数组中；反序列化：二叉树恢复。
+
+思路：根据前序遍历的顺序来序列化二叉树，当碰到nullptr指针的时候，将其序列化为一个特殊的字符（如'$'）,另外，节点的数值之间要用特殊字符隔开（如','）
+
+**38、字符串的排列**
+
+同17-1实现，没有考虑字符有重复的情况。
+
+**拓展题目：八皇后问题** 
+
+思路：对数组的index进行全排列，然后判断对于数组的两个下标，是否满足
+
+i-j==colIndex[i]-colIndex[j]或者j-i==colIndex[i]-colIndex[j];
 
 ------
 

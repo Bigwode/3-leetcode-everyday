@@ -34,7 +34,7 @@ public:
         {
             *(buffer+i) = str[i];
         }
-        *(buffer+str.size()) = str[str.size()];
+        *(buffer+str.size()) = '\0';
         return buffer;
     }
     
