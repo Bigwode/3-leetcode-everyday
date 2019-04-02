@@ -29,12 +29,12 @@ public:
             return nullptr;
         string str;
         serialize(root, str);
-        char* buffer = new char[str.size() + 1];
+        char* buffer = new char[str.size()];
         for(int i=0; i<str.size(); i++)
         {
             *(buffer+i) = str[i];
         }
-        *(buffer+str.size()) = '\0';
+        // *(buffer+str.size()) = '\0'; // 默认会在末尾加上'\0'
         return buffer;
     }
     

@@ -9,11 +9,11 @@ public:
         
         for(int i=1; i<len; i++)
         {
-            if(curSum <= 0)
+            if(curSum <= 0)  // 如果当前和小于0，更新为当前值
                 curSum = array[i];
             else
-                curSum += array[i];
-            if(curSum > maxSum)
+                curSum += array[i];  // 否则累加
+            if(curSum > maxSum)  //更新最大值
                 maxSum = curSum;
         }
         return maxSum;

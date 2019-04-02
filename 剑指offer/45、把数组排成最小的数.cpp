@@ -12,7 +12,7 @@ public:
         if(len == 0)
             return "";
         string res;
-        sort(numbers.begin(), numbers.end(), cmp);
+        sort(numbers.begin(), numbers.end(), cmp);  // 按照cmp规则排序
         for(int i=0; i<len; i++)
             res += to_string(numbers[i]);
         return res;

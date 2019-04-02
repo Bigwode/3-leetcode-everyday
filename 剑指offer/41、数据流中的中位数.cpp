@@ -1,3 +1,4 @@
+/*最大堆+最小堆（奇数，偶数）*/
 class Solution {
 public:
     vector<int> min;
@@ -6,7 +7,7 @@ public:
     {
         if(((min.size() + max.size()) & 1) == 0)  // 偶数是插入最小堆
         {
-            if(max.size()>0 && max[0]>num)  // 插入的数比最大堆的最大值小
+            if(max.size()>0 && max[0]>num)  // 但是插入的数比最大堆的最大值小
             {
                 max.push_back(num);
                 push_heap(max.begin(), max.end(), less<int>());  // 插入最大堆
@@ -19,7 +20,7 @@ public:
         }
         else  // 奇数插入最大堆
         {
-            if(min.size()>0 && min[0]<num)  // 插入的数比最大堆的最大值小
+            if(min.size()>0 && min[0]<num)  // 但是插入的数比最大堆的最大值小
             {
                 min.push_back(num);
                 push_heap(min.begin(), min.end(), greater<int>());  // 插入最大堆
@@ -33,7 +34,7 @@ public:
     }
 
     double GetMedian()
-    { 
+    {
         int size = min.size()+max.size();
         if(size == 0) return 0.;
         double medium = 0.;

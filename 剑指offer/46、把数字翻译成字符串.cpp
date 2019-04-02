@@ -13,7 +13,7 @@ int Num2StrCount(const string& s)
     int count = 0;
     int* counts = new int[len];
 
-    for(int i= len-1; i>=0; i--)  // 
+    for(int i= len-1; i>=0; i--)  // 避免重复子问题，从末尾开始
     {
         if(i==len-1)
             count = 1;

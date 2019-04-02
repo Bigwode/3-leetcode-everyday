@@ -7,8 +7,8 @@ public:
         while(low < high)
         {
             while(low < high && input[high]>=dummy) high--;
-            input[low] = input[high];
-            while(low < high && input[low]<=dummy) low++;
+            input[low]  = input[high];
+            while(low < high && input[low] <=dummy) low++;
             input[high] = input[low];
         }
         input[high] = dummy;
@@ -19,10 +19,10 @@ public:
     {
         vector<int> res;
         if(input.size() == 0 || k<=0 || k>input.size()) return res;
-        int low = 0;
+        int low  = 0;
         int high = input.size()-1;
         int index= Partition(input, low, high);
-        if(index != k-1)
+        if(index != k-1)  // while出错
         {
             if(index > k-1)
                 index = Partition(input, low, high-1);
