@@ -36,3 +36,10 @@ Mask R-CNN笔记
 
 [2]、https://blog.csdn.net/WZZ18191171661/article/details/79453780
 
+[3]、https://blog.csdn.net/hnshahao/article/details/81231211 (号称全网最好的mask rcnn 解析?)
+
+Detectron代码解析：
+
+[4]、https://hellozhaozheng.github.io/z_post/Caffe2-Detectron-%E6%A8%A1%E5%9E%8B%E8%AE%AD%E7%BB%83/
+
+[5]、https://ifreele.com/2018/03/22/tech-2018-3-22-faster-rcnn/
