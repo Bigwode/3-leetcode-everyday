@@ -15,3 +15,8 @@
 Inception-Resnet模块。
 
 Inception-Resnet V2中的Inception-resnet模块
+
+AlexNet引入了Relu和dropout,引入数据增强、池化相互之间覆盖，卷积池化全连接层
+
+VGGNet采用了1\*1和3\*3的卷积核及2\*2的池化
+
