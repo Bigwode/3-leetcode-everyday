@@ -19,7 +19,7 @@ public:
         
         int p1 = 0;
         int p2 = len-1;
-        int mid = p1;
+        int mid = p1;  //这样如果第一个元素小于最后一个元素的话，就是未旋转的情况。
         
         while(rotateArray[p1] >= rotateArray[p2])
         {
