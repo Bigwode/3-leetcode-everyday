@@ -10,7 +10,7 @@ void InsertSort(vector<int>& num)
     {
         int cur = num[i];
         int j = i-1;
-        while(j>=0 && num[j] > cur)
+        while(j>=0 && num[j] > cur)  // 前面大的值往后移，将当前值插入
         {
             num[j+1] = num[j];
             j--;
