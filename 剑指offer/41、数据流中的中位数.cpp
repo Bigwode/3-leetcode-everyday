@@ -1,4 +1,39 @@
-/*最大堆+最小堆（奇数，偶数）*/
+/*Method 2:*/
+class Solution {
+public:
+    priority_queue<int> max_heap;
+    priority_queue<int, vector<int>, greater<int>> min_heap;
+    
+    void Insert(int num)
+    {
+        // 偶数放在最大堆，奇数放在最小堆，每次需要交换最大队和最小堆的堆顶的值
+        if(((max_heap.size()+min_heap.size()) & 1) == 0)  // 这里不要忘记(),易出错
+            max_heap.push(num);
+        else
+            min_heap.push(num);
+        if(min_heap.size() > 0 && max_heap.size() > 0)  // 每次交换，保证最小堆的值比最大堆的值要大。
+        {
+            int temp = min_heap.top();
+            min_heap.pop();
+            max_heap.push(temp);
+
+            temp = max_heap.top();
+            max_heap.pop();
+            min_heap.push(temp);
+        }
+    }
+
+    double GetMedian()
+    {
+        if(((max_heap.size()+min_heap.size()) & 1) == 0)
+            return (max_heap.top() + min_heap.top()) / 2.0;
+        else
+            return max_heap.top();
+    }
+
+};
+
+/*Method 1:剑指offer解题方案：最大堆+最小堆（奇数，偶数）*/
 class Solution {
 public:
     vector<int> min;
