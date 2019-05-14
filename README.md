@@ -1949,3 +1949,13 @@ leetcode 754. Reach a Number
 
 思路：数学题，如果多出来的是偶数，输出k；如果多出来的数是奇数，判断k是奇数还是偶数，k是偶数，返回k+1；k是奇数，返回k+2。
 
+**leetcode 189**. Rotate Array
+
+思路1：直接将最后的k个元素插入到nums数组中。
+
+```c++
+nums.insert(nums.begin(), nums.end()-k, nums.end());    
+nums.erase(nums.end()-k, nums.end());
+```
+
+思路2：vector<int> nums.back()返回数组的最后一个元素；nums.pop_back()删除最后一个元素；nums.insert(nums.begin(), k)在数组开头插入元素k；
