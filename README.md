@@ -1941,6 +1941,8 @@ leetcode 109. Convert Sorted List to Binary Search Tree.
 
 ------
 
+**DAY 70** 5.14
+
 leetcode 754. Reach a Number
 
 题目：站在0的位置上，可以向左向右走，第一次走一步，之后的第n次都走n步，问能不能到达target位置。输出如果能到target位置最少需要走多少步。
