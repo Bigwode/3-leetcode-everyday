@@ -1938,3 +1938,12 @@ leetcode 23. Merge K Sorted Lists合并k个已经排好序的链表
 leetcode 109. Convert Sorted List to Binary Search Tree.
 
 思路：递归思路，先设置快慢指针，找到链表的中间元素，作为平衡树的根节点，然后递归调用函数设置左右子树的内容。
+
+------
+
+leetcode 754. Reach a Number
+
+题目：站在0的位置上，可以向左向右走，第一次走一步，之后的第n次都走n步，问能不能到达target位置。输出如果能到target位置最少需要走多少步。
+
+思路：数学题，如果多出来的是偶数，输出k；如果多出来的数是奇数，判断k是奇数还是偶数，k是偶数，返回k+1；k是奇数，返回k+2。
+
