@@ -1959,3 +1959,18 @@ nums.erase(nums.end()-k, nums.end());
 ```
 
 思路2：vector<int> nums.back()返回数组的最后一个元素；nums.pop_back()删除最后一个元素；nums.insert(nums.begin(), k)在数组开头插入元素k；
+
+------
+
+**DAY 71**  5.19
+
+**leetcode 9.** Palindrome Number
+
+判断输入的数字是不是回文数字。
+
+思路：设置一个变量，从后往前叠加，直到到前值小于等于每次除以10的数之后停止迭代，返回的值要考虑数字长度是奇数还是偶数的情况。
+
+**leetcode 5.** Longest Palindromic Substring
+
+最长子回文串
+
