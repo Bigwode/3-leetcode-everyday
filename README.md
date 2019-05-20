@@ -1974,3 +1974,4 @@ nums.erase(nums.end()-k, nums.end());
 
 最长子回文串
 
+动态规划解法，写出状态转移方程。
