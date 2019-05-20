@@ -1943,7 +1943,7 @@ leetcode 109. Convert Sorted List to Binary Search Tree.
 
 **DAY 70** 5.14
 
-leetcode 754. Reach a Number
+**leetcode 754.** Reach a Number
 
 题目：站在0的位置上，可以向左向右走，第一次走一步，之后的第n次都走n步，问能不能到达target位置。输出如果能到target位置最少需要走多少步。
 
@@ -1975,3 +1975,23 @@ nums.erase(nums.end()-k, nums.end());
 最长子回文串
 
 动态规划解法，写出状态转移方程。
+
+------
+
+**leetcode 120.** Triangle
+
+题目：给一个三角形数组，找到从上到下最小和的路径，只能移动到下一行的相邻数字中。只能使用O(n)的extra space，n是三角形的行数。
+
+思路：DP解法：写出状态转移方程
+
+```c++
+minpath[k][i] = min( minpath[k+1][i], minpath[k+1][i+1]) + triangle[k][i];
+```
+
+因为只与上一层有关，所以，
+
+```c++
+For the kth level:
+minpath[i] = min( minpath[i], minpath[i+1]) + triangle[k][i]; 
+```
+
