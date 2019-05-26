@@ -15,7 +15,7 @@ struct BitreeNode
     BitreeNode *lchild, *rchild;
 };
 
-void InitTreeNode(BitreeNode &t,int data,BitreeNode *lchild,BitreeNode *rchild)
+void InitTreeNode(BitreeNode &t, int data, BitreeNode *lchild, BitreeNode *rchild)
 {
     t.data = data;
     t.lchild = lchild;
@@ -125,11 +125,11 @@ void PostOrder2(BitreeNode *t)
         }
         else
         {
-            //每次取栈定元素
+            //每次取栈顶元素
             //判断栈顶元素的右孩子是否为空，
             //如果不为空，查看之前访问的节点是不是该栈顶元素的右孩子
             p = s.top();
-            if (p->rchild != nullptr && p->rchild != tmp)
+            if (p->rchild != nullptr && p->rchild != tmp)  //　右子树中存在且未被访问
             {
                 p = p->rchild;//右
             }
@@ -139,7 +139,7 @@ void PostOrder2(BitreeNode *t)
                 s.pop();
                 //每次访问节点之后，需要将缓存上一次访问的节点，并且将指针置空
                 tmp = p;
-                p = nullptr;
+                p = nullptr;  // 节点访问完后，重置p指针
             }
         }
     }
@@ -188,7 +188,7 @@ int main()
     InitTreeNode(t3, 3, &t6, &t7);
     InitTreeNode(t1, 1, &t2, &t3);
 
-    PreOrder2(&t1);
+    PostOrder2(&t1);
     return 0;
 }
 
