@@ -6,6 +6,7 @@
 using namespace std;
 
 template<typename T>
+
 void permutation(T array[], int begin, int end)
 {
     int i;

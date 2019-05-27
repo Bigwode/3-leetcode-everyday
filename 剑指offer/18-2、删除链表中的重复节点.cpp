@@ -16,8 +16,8 @@ public:
         ListNode* pNew = new ListNode(-1); // 为了应对头结点需要删除的情况
         pNew->next = pHead;
         ListNode* pPre = pNew;  // 指向被删除节点的上一个节点
-        ListNode* pNode = pHead;
-        ListNode* pNext = nullptr;
+        ListNode* pNode = pHead;  //　指向当前节点
+        ListNode* pNext = nullptr;  //　指向下一个节点
         
         while(pNode != nullptr && pNode->next != nullptr)
         {
