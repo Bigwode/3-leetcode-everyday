@@ -12,7 +12,7 @@ public:
     }
     
     bool check(int threshold, int rows, int cols, int row, int col, vector<bool>& isVisited)
-    {  // 判断是否可以访问(row, col)位置
+    {  // 判断是否可以访问(row, col)位置, 即是否可以该位置上的各位数之和不大于threshold
         if(row>=0 && row<rows && col>=0 && col<cols && 
            (noLargerTarget(row)+noLargerTarget(col))<=threshold && 
            !isVisited[row*cols+col])
@@ -37,7 +37,7 @@ public:
     int movingCount(int threshold, int rows, int cols)
     {
         vector<bool> isVisited(rows*cols, 0);
-        int count = moving(threshold, rows, cols, 0, 0, isVisited);
+        int count = moving(threshold, rows, cols, 0, 0, isVisited);  // 和上一个题目不一样的是，这里规定是从(0,0)点开始。
         return count;
     }
 };

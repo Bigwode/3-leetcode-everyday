@@ -129,7 +129,7 @@ void PostOrder2(BitreeNode *t)
             //判断栈顶元素的右孩子是否为空，
             //如果不为空，查看之前访问的节点是不是该栈顶元素的右孩子
             p = s.top();
-            if (p->rchild != nullptr && p->rchild != tmp)  //　右子树中存在且未被访问
+            if (p->rchild != nullptr && p->rchild != tmp)  //　右子树存在且未被访问
             {
                 p = p->rchild;//右
             }
@@ -139,7 +139,7 @@ void PostOrder2(BitreeNode *t)
                 s.pop();
                 //每次访问节点之后，需要将缓存上一次访问的节点，并且将指针置空
                 tmp = p;
-                p = nullptr;  // 节点访问完后，重置p指针
+                p = nullptr;  // 节点访问完后，重置p指针(如果不置null，外层循环会一直循环，一直往stack中push p)
             }
         }
     }

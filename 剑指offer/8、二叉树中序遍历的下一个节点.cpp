@@ -23,7 +23,7 @@ public:
                 pNode = pNode->left;
             return pNode;
         }
-        while(pNode->next != nullptr)  //没右子树，则找第一个当前节点是父节点左孩子的节点
+        while(pNode->next != nullptr)  //没右子树，则找第一个当前节点是其父节点左孩子的节点
         {
             if(pNode->next->left == pNode)
                 return pNode->next;
