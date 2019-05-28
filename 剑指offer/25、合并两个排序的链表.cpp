@@ -30,10 +30,8 @@ public:
         }
         if(p1==nullptr)
             result->next = p2;
-            result = result->next;
         if(p2==nullptr)
             result->next = p1;
-            result = result->next;
         return out->next;
     }
 };

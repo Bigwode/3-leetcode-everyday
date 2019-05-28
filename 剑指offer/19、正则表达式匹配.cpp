@@ -5,7 +5,7 @@ public:
         if(*str=='\0' && *pattern=='\0') return true;
         if(*str!='\0' && *pattern=='\0') return false;  // 不能加 *str=='\0' && *pattern!='\0'是因为（“”， “.*”）
 
-        if(*(pattern+1) == '*')  // 如果下一个字符是'*'
+        if(*(pattern+1) == '*')  // 先判断下一个字符是不是'*'
         {
             if(*str == *pattern  || (*str != '\0' && *pattern == '.'))  // 字符匹配或者.匹配
                 return matchCore(str, pattern+2) ||  // 直接跳过*，表示匹配0个

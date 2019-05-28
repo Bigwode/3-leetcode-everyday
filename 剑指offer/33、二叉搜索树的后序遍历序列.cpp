@@ -21,7 +21,7 @@ public:
         if(i>0)  // 确保元素数大于1
             left = VerifySquenceOfBST(vector<int>(sequence.begin(), sequence.begin()+i));
         bool right = true;
-        if(i<len-1)  //  
+        if(i<len-1)  // i<len-1才能保证至少有一个元素
             right = VerifySquenceOfBST(vector<int>(sequence.begin()+i, sequence.begin()+len-1));
         return left && right;
     }

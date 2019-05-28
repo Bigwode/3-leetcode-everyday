@@ -24,14 +24,14 @@ public:
             TreeNode* temp = s[cur].top();
             res.push_back(temp->val);
             s[cur].pop();
-            if(cur==0)
+            if(cur==0)  // 奇数层，先左后右
             {
                 if(temp->left)
                     s[next].push(temp->left);
                 if(temp->right)
                     s[next].push(temp->right);
             }
-            else
+            else　　// 偶数层，先右后左
             {
                 if(temp->right)
                     s[next].push(temp->right);

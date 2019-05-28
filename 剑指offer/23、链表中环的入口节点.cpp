@@ -9,7 +9,7 @@ struct ListNode {
 */
 class Solution {
 public:
-    ListNode* MeetingNode(ListNode* pHead)
+    ListNode* MeetingNode(ListNode* pHead)  // 确定链表中是否有环，并且返回环内一个元素的指针
     {
         if(pHead==nullptr) return nullptr;
         ListNode* pSlow = pHead;
