@@ -1,28 +1,30 @@
 /******************************Method 1******************************/
 class Solution {
 public:
-    
-    TreeNode* Convert(TreeNode* root)
+    TreeNode* Convert(TreeNode* pRootOfTree)
     {
-        if(root==NULL)  return NULL;//递归边界
-        if(root->left==NULL && root->right==NULL)  return root;//递归边界
+        if(!pRootOfTree) return nullptr;
+        if(!pRootOfTree->left && !pRootOfTree->right) return pRootOfTree;
         
-        TreeNode* left = Convert(root->left);//递归左边
+        TreeNode* left = Convert(pRootOfTree->left);
         TreeNode* p = left;
-        while(p!=NULL && p->right!=NULL)//找左子树最右节点
-            p = p->right;//当p->right为NULL的时候跳出循环
-        if(left)//若左子树不空
+        
+        while(p && p->right)
+            p = p->right;
+        if (left)
         {
-            p->right = root;
-            root->left = p;
+            p->right = pRootOfTree;
+            pRootOfTree->left = p;
         }
-        TreeNode* right = Convert(root->right);//递归右边
-        if(right)//若右子树不空
+        
+        TreeNode* right = Convert(pRootOfTree->right);
+
+        if(right)
         {
-            root->right = right;
-            right->left = root;
+            right->left = pRootOfTree;
+            pRootOfTree->right = right;
         }
-        return left ? left : root;
+        return left ? left : pRootOfTree;
     }
 };
 /******************************Method 2:剑指offer******************************/
