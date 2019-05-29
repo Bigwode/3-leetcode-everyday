@@ -75,9 +75,9 @@ int getMaxValue(const int* values, int rows, int cols)
             int left = 0;
             int top  = 0;
             if(i>0)
-                top = maxValues[j];  
+                top = maxValues[j];  // 从第j个开始是第i-1行的top值
             if(j>0)
-                left = maxValues[j-1];
+                left = maxValues[j-1];  //　前j-1个数是第i行left的最大值 
             maxValues[j] = max(top, left) + values[i*cols+j];
         }
     }

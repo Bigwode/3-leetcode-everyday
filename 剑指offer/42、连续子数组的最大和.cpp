@@ -4,8 +4,8 @@ public:
     {
         int len = array.size();
         if(len <= 0) return 0;
-        int curSum = array[0];
-        int maxSum = array[0];
+        int curSum = array[0];  // 当前和
+        int maxSum = array[0];  // 当前最大值
         
         for(int i=1; i<len; i++)
         {

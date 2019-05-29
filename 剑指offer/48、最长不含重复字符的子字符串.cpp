@@ -44,3 +44,38 @@ int main()
     return 0;
 }
 
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) 
+    {
+        int len = s.size();
+        if(len <= 0) return 0;
+        int* pos = new int[26];
+        for(int i=0; i<26; i++)
+            pos[i] = -1;
+        int maxlen = 0;
+        int curlen = 0;
+        
+        for(int j=0;j<len; j++)
+        {
+            int dis = pos[s[j]-'a'];
+            if(dis==-1 || j-dis>curlen)  // 没出现过或者距离大于maxlen
+                curlen++;
+            else  // 出现过且距离小于等于d，curlen=d
+            {
+                if(curlen > maxlen)
+                    maxlen = curlen;
+                curlen = j-dis;
+            }
+            pos[s[j]-'a'] = j;
+        }
+
+        if(curlen > maxlen)
+            maxlen = curlen;
+        
+        delete[] pos;
+        return maxlen;
+        
+    }
+};

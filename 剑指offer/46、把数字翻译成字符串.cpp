@@ -16,7 +16,7 @@ int Num2StrCount(const string& s)
     for(int i= len-1; i>=0; i--)  // 避免重复子问题，从末尾开始
     {
         if(i==len-1)
-            count = 1;
+            count = 1;  // 针对最后一个数值
         else
             count = counts[i+1];
         if(i<len-1)
@@ -25,9 +25,9 @@ int Num2StrCount(const string& s)
             if(num>=10 && num<=25)
             {
                 if(i<len-2)
-                    count += counts[i+2];  //
+                    count += counts[i+2];  //　考虑到最后两个元素，len-1和len-2的情况，没有f(i+1)+f(i+2)
                 else
-                    count += 1;
+                    count += 1;  // 
             }
         }
         counts[i] = count;
