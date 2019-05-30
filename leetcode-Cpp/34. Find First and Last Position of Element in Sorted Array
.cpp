@@ -3,7 +3,7 @@ public:
     int GetFirstK(vector<int>& data, int k, int start, int end)
     {
         int length = data.size();
-        if(start > end)  // 要找的数不存在的情况
+        if(start > end)
             return -1;
         int middleIndex = start+(end-start)/2;
         int middleData = data[middleIndex];
@@ -41,17 +41,23 @@ public:
             end = middleIndex-1;
         return GetLastK(data, k, start, end);
     }
-
-    int GetNumberOfK(vector<int> data ,int k) {
+    
+    vector<int> searchRange(vector<int>& nums, int target) 
+    {
         int number = 0;
-        int length = data.size();
+        int length = nums.size();
+        vector<int> result = {-1,-1};
+        
         if(length>0)
         {
-            int first = GetFirstK(data, k, 0, length-1);
-            int last = GetLastK(data, k, 0, length-1);
-            if(first>-1 && last>-1)  // 要找的数存在
-                number = last-first+1;
+            int first = GetFirstK(nums, target, 0, length-1);
+            int last = GetLastK(nums, target, 0, length-1);
+            
+            result.clear();
+            result.push_back(first);
+            result.push_back(last);
+
         }
-        return number;
+        return result;
     }
 };

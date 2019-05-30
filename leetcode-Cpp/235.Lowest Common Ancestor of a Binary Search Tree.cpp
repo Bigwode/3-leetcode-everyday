@@ -1,5 +1,5 @@
 /**
- * Definition for a binary tree node.
+ * Definition for a binary tree node.找到第一个大于一个节点并小于另外一个节点的节点即为最低公共祖先。
  * struct TreeNode {
  *     int val;
  *     TreeNode *left;

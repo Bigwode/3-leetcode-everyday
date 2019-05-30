@@ -16,13 +16,13 @@ public:
         if(pRoot != nullptr)
         {
             TreeNode* pNode = KthNode(pRoot->left, k);
-            if(pNode != nullptr)  //这里为什么加这个判断？
+            if(pNode != nullptr)  //
                 return pNode;
             count++;
             if(count == k)
-                return pRoot;　//　这里为什么返回的是pRoot?
+                return pRoot;
             pNode = KthNode(pRoot->right, k);
-            if(pNode != nullptr)
+            if(pNode != nullptr)  //
                 return pNode;
         }
         return nullptr;

@@ -16,7 +16,7 @@ int maxPro(const int* numbers, int len)
     for(int i=2; i<len; i++)
     {
         if(numbers[i-1] < minValue)
-            minValue = numbers[i-1];
+            minValue = numbers[i-1];  // minValue保存的是前i-1个数的最小值
         if((numbers[i] - minValue) > maxPro)
             maxPro = numbers[i] - minValue;
     }

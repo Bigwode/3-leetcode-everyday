@@ -6,18 +6,18 @@ public:
         if(!pRootOfTree) return nullptr;
         if(!pRootOfTree->left && !pRootOfTree->right) return pRootOfTree;
         
-        TreeNode* left = Convert(pRootOfTree->left);
+        TreeNode* left = Convert(pRootOfTree->left);  // 将左子树构造成双向链表，返回双向链表的头结点
         TreeNode* p = left;
         
-        while(p && p->right)
+        while(p && p->right)　　// 找到左子树的最右节点
             p = p->right;
-        if (left)
+        if (left)  //　如果左子树不为空，将当前节点作为　(判断条件为p的时候效果一样)
         {
             p->right = pRootOfTree;
             pRootOfTree->left = p;
         }
         
-        TreeNode* right = Convert(pRootOfTree->right);
+        TreeNode* right = Convert(pRootOfTree->right);  // 将右子树构造成双向链表，返回双向链表的头结点
 
         if(right)
         {
