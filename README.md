@@ -2092,3 +2092,16 @@ minpath[i] = min( minpath[i], minpath[i+1]) + triangle[k][i];
 return !left ? right : (!right ? left : root);
 ```
 
+------
+
+**DAY 73** 5.31
+
+**leetcode 160.** 两个链表的交叉节点。
+
+最好的思路是：因为不知道哪一个链表长，所以在一个走完之后转移到另一个链表的头节点继续走，直到遇到相同的节点就是交叉的节点。
+
+**leetcode 215.**在一个未排序的数组中找到第K大的元素。
+
+思路：基于partition的快排和基于最小堆的思路
+
+　
