@@ -3,7 +3,6 @@ class Solution {
 public:
     int findKthLargest(vector<int>& nums, int k)
     {
-        
         priority_queue<int, vector<int>, greater<int>> q;
         for(auto i:nums)
         {
@@ -23,33 +22,36 @@ public:
 /*思路2*/
 class Solution {
 public:
-    int Partition(vector<int>& num, int low, int high)
+    int partition(vector<int>& nums, int start, int end)
     {
-        int dummy = num[low];
-        while(low<high)
+        int dummy = nums[start];
+        while(start < end)
         {
-            while (low<high && num[high]<=dummy)  --high;  // 将大的数放到前面
-            num[low] = num[high];
-            while (low<high && num[low]>=dummy)  ++low;
-            num[high] = num[low];
+            while(start<end && nums[end]<=dummy) end--;
+            nums[start] = nums[end];
+            
+            while(start<end && nums[start]>=dummy) start++;
+            nums[end] = nums[start];
         }
-        num[high] = dummy;
-        return high;
+        nums[end] = dummy;
+        return end;
     }
     
-    int findKthLargest(vector<int>& nums, int k)
+    int findKthLargest(vector<int>& nums, int k) 
     {
-        int high = nums.size()-1;
-        int low  = 0;
-        while(low < high)
+        int len = nums.size();
+        int start = 0;
+        int end = len-1;
+        int inds = partition(nums, start, end);
+        
+        while(inds != k-1)
         {
-            int pivot = Partition(nums, low, high);
-            if(pivot == k-1) return nums[pivot];
-            else if(pivot < k-1) // 在右半部分
-                low = pivot+1;
-            else  // 在左半部分
-                high = pivot-1;
+            if(inds < k-1)
+                inds = partition(nums, inds+1, end);
+            else
+                inds = partition(nums, start, inds-1);
         }
-        return nums[low]; // 当只有一个元素的时候
+        
+        return nums[inds];
     }
 };

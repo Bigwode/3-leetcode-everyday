@@ -2104,4 +2104,7 @@ return !left ? right : (!right ? left : root);
 
 思路：基于partition的快排和基于最小堆的思路
 
-　
+**leetcode 206.** 反转链表
+
+注意pre, cur, head三个节点的处理。
+
