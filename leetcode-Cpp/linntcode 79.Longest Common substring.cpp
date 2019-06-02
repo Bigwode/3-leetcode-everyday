@@ -13,9 +13,11 @@ void findMaxCommonStr(string s1,string s2)
     int maxLen=0, start=0;
     
     vector<vector<int> >dp(len1+1,vector<int>(len2+1,0));
+	// int dp[lenA+1][lenB+1];
+    // memset(dp, 0, sizeof(dp));
     
     for(int i=1;i<=len1;++i)
-        for(int j=1;j<=len2;++j)
+        for(int j=1;j<=len2;++j)  // 相当于用长的在短的里面挨个找
         {
             if(s1[i-1]==s2[j-1])
             {

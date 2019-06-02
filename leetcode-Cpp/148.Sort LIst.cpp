@@ -8,58 +8,56 @@
  */
 class Solution {
 public:
-    ListNode* merge(ListNode* head1, ListNode* head2)  //合并两个排序的链表
+    ListNode* merge(ListNode* left, ListNode* right)  // 相当于合并两个排序链表
     {
-        if(!head1) return head2;
-        if(!head2) return head1;
+        if(!left) return right;
+        if(!right) return left;
         
-        ListNode* res, *p;
-        
-        if(head1->val <= head2->val)
+        ListNode* res, * p;
+        if(left->val <= right->val)
         {
-            res = head1;
-            head1 = head1->next;
+            res = left;
+            left = left->next;
         }
-        else{
-            res = head2;
-            head2 = head2->next;
-        }
-        
-        p = res;
-        
-        while(head1 && head2)
+        else
         {
-            if(head1->val <= head2->val)
+            res = right;
+            right = right->next;
+        }
+        p = res;  // 
+        
+        while(left && right)
+        {
+            if(left->val <= right->val)
             {
-                p->next = head1;
-                head1 = head1->next;
+                p->next = left;
+                left = left->next;
             }
             else
             {
-                p->next = head2;
-                head2 = head2->next;
+                p->next = right;
+                right = right->next;
             }
-            p = p->next;
+            p = p->next;  // 这句放在括弧外更简洁
         }
         
-        if(head1)
-            p->next = head1;
-        
-        if(head2)
-            p->next = head2;
+        if(left)
+            p->next = left;
+        if(right)
+            p->next = right;
         
         return res;
     }
     
     ListNode* sortList(ListNode* head)
     {
-        // 设置快慢指针将链表分成两部分
+        // 先设置快慢指针将链表分割成两部分
         if(!head || !head->next) return head;
         
         ListNode* fast = head;
         ListNode* slow = head;
         
-        while(!fast->next && !fast->next->next)
+        while(fast->next && fast->next->next)
         {
             fast = fast->next->next;
             slow = slow->next;
@@ -68,10 +66,9 @@ public:
         fast = slow->next;
         slow->next = nullptr;
         
-        head = sortList(head);
-        fast = sortList(fast);
+        ListNode* left = sortList(head);
+        ListNode* right = sortList(fast);
         
-        return merge(head, fast);
-            
+        return merge(left, right);
     }
 };

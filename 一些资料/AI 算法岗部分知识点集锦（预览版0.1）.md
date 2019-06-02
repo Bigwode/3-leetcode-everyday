@@ -31,7 +31,7 @@
 
 - 回归模型中，y是一个定性变量，比如y=0或1，logistic方法主要应用于研究某些事件发生的概率。
 
-- 逻辑回归的本质——极大似然估计
+- **逻辑回归的本质——极大似然估计**
 
 - 逻辑回归的激活函数——Sigmoid
 
@@ -122,165 +122,6 @@ J(\phi(z),y;w)=-yln(\phi(z))-(1-y)ln(1-\phi(z))
 运用最终sigmoid函数求解分类
 
 ```
-
-逻辑回归算法python算法
-
-```python
-# -*- coding:utf-8 -*-
-import numpy as np
-import matplotlib.pyplot as plt
-import random
- 
- 
-def text2num(string):
-    """
-    :param string: string
-    :return: list
-    """
-    str_list = string.replace("\n", " ").split(" ")
-    while '' in str_list:
-        str_list.remove('')
-    num_list = [float(i) for i in str_list]
-    return num_list
- 
- 
-def sigmoid(x):
-    """
-    :param x: 输入需要计算的值
-    :return: 
-    """
-    return 1.0 / (1 + np.exp(-x))
- 
- 
-def data_plot(data_list, weight):
-    """
-    :param data_list:数据点集合 
-    :param weight: 参数集合
-    :return: null
-    """
-    x_data = [list(i[0:2]) for i in data_list if i[2] == 0.0]
-    y_data = [list(i[0:2]) for i in data_list if i[2] == 1.0]
-    x_data = np.reshape(x_data, np.shape(x_data))
-    y_data = np.reshape(y_data, np.shape(y_data))
-    linear_x = np.arange(-4, 4, 1)
-    linear_y = (-weight[0] - weight[1] * linear_x) / weight[2]
-    print(linear_y)
-    plt.figure(1)
-    plt.scatter(x_data[:, 0], x_data[:, 1], c='r')
-    plt.scatter(y_data[:, 0], y_data[:, 1], c='g')
-    print(linear_x)
-    print(linear_y.tolist()[0])
-    plt.plot(linear_x, linear_y.tolist()[0])
-    plt.show()
- 
- 
-def grad_desc(data_mat, label_mat, rate, times):
-    """
-    :param data_mat: 数据特征
-    :param label_mat: 数据标签
-    :param rate: 速率
-    :param times: 循环次数
-    :return: 参数
-    """
-    data_mat = np.mat(data_mat)
-    label_mat = np.mat(label_mat)
-    m,n = np.shape(data_mat)
-    weight = np.ones((n, 1))
-    for i in range(times):
-        h = sigmoid(data_mat * weight)
-        error = h - label_mat
-        weight = weight - rate * data_mat.transpose() * error
-    return weight
- 
- 
-def random_grad_desc(data_mat, label_mat, rate, times):
-    """
-    :param data_mat: 数据特征
-    :param label_mat: 数据标签
-    :param rate: 速率
-    :param times: 循环次数
-    :return: 参数
-    """
-    data_mat = np.mat(data_mat)
-    m,n = np.shape(data_mat)
-    weight = np.ones((n, 1))
-    for i in range(times):
-        for j in range(m):
-            h = sigmoid(data_mat[j] * weight)
-            error = h - label_mat[j]
-            weight = weight - rate * data_mat[j].transpose() * error
-    return weight
- 
- 
-def improve_random_grad_desc(data_mat, label_mat, times):
-    """
-    :param data_mat: 数据特征
-    :param label_mat: 数据标签
-    :param rate: 速率
-    :param times: 循环次数
-    :return: 参数
-    """
-    data_mat = np.mat(data_mat)
-    m,n = np.shape(data_mat)
-    weight = np.ones((n, 1))
-    for i in range(times):
-        index_data = [i for i in range(m)]
-        for j in range(m):
-            rate = 0.0001 + 4 / (i + j + 1)
-            index = random.sample(index_data, 1)
-            h = sigmoid(data_mat[index] * weight)
-            error = h - label_mat[index]
-            weight = weight - rate * data_mat[index].transpose() * error
-            index_data.remove(index[0])
-    return weight
- 
- 
-def main():
-    file = open("/Users/chenzu/Documents/code-machine-learning/data/LR", "rb")
-    file_lines = file.read().decode("UTF-8")
-    data_list = text2num(file_lines)
-    data_len = int(len(data_list) / 3)
-    data_list = np.reshape(data_list, (data_len, 3))
-    data_mat_temp = data_list[:, 0:2]
-    data_mat = []
-    for i in data_mat_temp:
-        data_mat.append([1, i[0], i[1]])
-    print(data_mat)
-    label_mat = data_list[:, 2:3]
- 
- 
-    #梯度下降求参数
-    weight = improve_random_grad_desc(data_mat, label_mat, 500)
-    print(weight)
-    data_plot(data_list, weight)
- 
- 
-if __name__ == '__main__':
-    main()
-
-```
-
-逻辑回归算法python算法实验结果
-
-
-
-参考：
-
-《统计学习方法》 第6章  P77页
-
-《机器学习》 西瓜书 第3章  P57页
-
-[《Machine Learning》 吴恩达 Logistic Regression](https://d19vezwu8eufl6.cloudfront.net/ml/docs%2Fslides%2FLecture6.pdf)
-
-[逻辑回归(logistic regression)的本质——极大似然估计](https://blog.csdn.net/zjuPeco/article/details/77165974)
-
-[逻辑回归](https://blog.csdn.net/pakko/article/details/37878837)
-
-[【机器学习】逻辑回归（Logistic Regression）](https://www.cnblogs.com/Belter/p/6128644.html)
-
-[机器学习算法--逻辑回归原理介绍](https://blog.csdn.net/chibangyuxun/article/details/53148005)
-
-[十分钟掌握经典机器学习算法-逻辑回归](https://blog.csdn.net/tangyudi/article/details/80131307)
 
 
 ## 2.2 支持向量机（Support Vector Machine，SVM）
@@ -468,7 +309,7 @@ L1正则化和L2正则化可以看做是损失函数的惩罚项。所谓『惩�
 - L1正则化是指权值向量w中各个元素的绝对值之和，通常表示为||w||1
 
 - L2正则化是指权值向量w中各个元素的平方和然后再求平方根（可以看到Ridge回归的L2正则化项有平方符号），通常表示为||w||2
-一般都会在正则化项之前添加一个系数，Python中用α表示，一些文章也用λ表示。这个系数需要用户指定。
+  一般都会在正则化项之前添加一个系数，Python中用α表示，一些文章也用λ表示。这个系数需要用户指定。
 
 那添加L1和L2正则化有什么用？下面是L1正则化和L2正则化的作用，这些表述可以在很多文章中找到。
 
@@ -942,7 +783,7 @@ SVM目标函数
 
 
 http://www.zhihu.com/question/26768865/answer/34078149
- 
+
 
 **快速理解LR和SVM的区别**
 
@@ -1676,7 +1517,7 @@ W∗=argminw∗∑iN(ti∗−w^T∗ϕ5(Pi))2+λ||w^∗||2
 
 最小化误差是为了让我们的模型拟合我们的训练数据，而规则化参数是防止我们的模型过分拟合我们的训练数据。
 
- 
+
 还有几种角度来看待规则化的。规则化符合奥卡姆剃刀(Occam's razor)原理。这名字好霸气，razor！不过它的思想很平易近人：在所有可能选择的模型中，我们应该选择能够很好地解释已知数据并且十分简单的模型。从贝叶斯估计的角度来看，规则化项对应于模型的先验概率。民间还有个说法就是，规则化是结构风险最小化策略的实现，是在经验风险上加一个正则化项(regularizer)或惩罚项(penalty term)。
 
 

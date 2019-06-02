@@ -22,36 +22,42 @@ public:
 /*思路2*/
 class Solution {
 public:
-    int partition(vector<int>& nums, int start, int end)
+    int partition(vector<int>& nums, int low, int high)
     {
-        int dummy = nums[start];
-        while(start < end)
+        int dummy = nums[low];
+        while(low<high)
         {
-            while(start<end && nums[end]<=dummy) end--;
-            nums[start] = nums[end];
-            
-            while(start<end && nums[start]>=dummy) start++;
-            nums[end] = nums[start];
+            while(low<high && nums[high]<=dummy) high--;
+            nums[low] = nums[high];
+            while(low<high && nums[low]>=dummy) low++;
+            nums[high] = nums[low];
         }
-        nums[end] = dummy;
-        return end;
+        nums[low] = dummy;
+        return low;
     }
     
-    int findKthLargest(vector<int>& nums, int k) 
+    int findKthLargest(vector<int>& nums, int k)
     {
         int len = nums.size();
-        int start = 0;
-        int end = len-1;
-        int inds = partition(nums, start, end);
+        int low = 0;
+        int high = len-1;
+        int pivot = partition(nums, low, high);
         
-        while(inds != k-1)
+        while(pivot != k-1)
         {
-            if(inds < k-1)
-                inds = partition(nums, inds+1, end);
+            if(pivot < k-1)
+            {
+                low = pivot+1;
+                pivot = partition(nums, low, high);
+            }
             else
-                inds = partition(nums, start, inds-1);
+            {
+                high = pivot-1;
+                pivot = partition(nums, low, high);
+            }
         }
         
-        return nums[inds];
+        return nums[pivot];
     }
 };
+
