@@ -2156,3 +2156,10 @@ https://blog.csdn.net/u012162613/article/details/41428119
 
 ------
 
+**DAY 76.** 6.4
+
+leetcode 92. Reverse Linked List II
+
+题目要求：将一个链表的某一部分节点顺序反转。只能用一次循环实现。
+
+思路：为防止首节点发生变化，设置dummy节点，然后先将pre节点移动到带反转节点之前的一个节点，然后可以理解为每次将cur->next(move)节点移动到pre->next，cur节点指向的节点其实每次是不变的，只不过相对位置在后移，移动的次数为n-m次。
