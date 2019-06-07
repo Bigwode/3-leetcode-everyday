@@ -2172,3 +2172,5 @@ leetcode 92. Reverse Linked List II
 
 参考资料：https://blog.csdn.net/kk55guang2/article/details/86179068
 
+**leetcode 416.** Partition Equal Subset Sum(01背包问题)
+
