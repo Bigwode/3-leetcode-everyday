@@ -2174,3 +2174,30 @@ leetcode 92. Reverse Linked List II
 
 **leetcode 416.** Partition Equal Subset Sum(01背包问题)
 
+dp[i]表示原数组是否可以取出若干个数字，其和为i
+
+------
+
+**DAY 78.** 6.8 lintcode背包六问
+
+92.BackPack 单次选择+最大体积
+
+空间优化版本：因为当前的最大值只依赖上一层的值，所以可以简化为一维数组。值得注意的是，因为背包重量较大的会依赖背包重量较小的那一部分的值，所以，背包重量的循环应该是从后往前的。
+
+动态规划状态转移方程会写，但是需要注意边界条件的一些细节处理。
+
+```c++
+int len = A.size();
+int dp[m+1];
+memset(dp, 0, sizeof(dp));
+
+for(int i=0; i<len; i++)
+{
+	for(int j=m; j>=A[i]; j--)
+        dp[j] = max(dp[j], dp[j-A[i]]+V[i]);
+}
+return dp[m];
+```
+
+参考资料：https://segmentfault.com/a/1190000006325321#articleHeader7
+
