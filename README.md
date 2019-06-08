@@ -2174,7 +2174,9 @@ leetcode 92. Reverse Linked List II
 
 **leetcode 416.** Partition Equal Subset Sum(01背包问题)
 
-dp[i]表示原数组是否可以取出若干个数字，其和为i
+dp[i]表示原数组是否可以取出若干个数字，其和为i。
+
+这样状态转移方程就是dp[i]=dp[i] || dp[i-num];
 
 ------
 
@@ -2201,3 +2203,8 @@ return dp[m];
 
 参考资料：https://segmentfault.com/a/1190000006325321#articleHeader7
 
+322.Coin Change
+
+题目：给定一堆不同面额的coins和一个money总额数，问组成money数的最小的coins数，如果不能组成这个总数，返回-1。
+
+思路：dp[i]为总金额为i的时候的最少换币数，状态转移方程为dp[i] = min(dp[i], dp[i-coin]+1)
