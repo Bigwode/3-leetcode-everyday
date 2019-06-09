@@ -2208,3 +2208,11 @@ return dp[m];
 题目：给定一堆不同面额的coins和一个money总额数，问组成money数的最小的coins数，如果不能组成这个总数，返回-1。
 
 思路：dp[i]为总金额为i的时候的最少换币数，状态转移方程为dp[i] = min(dp[i], dp[i-coin]+1)
+
+------
+
+leetcode 78. Subsets.
+
+题目：求一个数组的所有子数组（包含空数组和原数组）
+
+思路：先依次push_back数组的最后一个元素，然后将num push_back()到数组的back()元素位置上。
